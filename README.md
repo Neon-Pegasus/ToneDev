@@ -1,2 +1,2 @@
 # ToneDev
-Community tool for developers to collaborate on projects
+Tone analysis for github users based on their review comments
