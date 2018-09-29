@@ -5,11 +5,26 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jest-tests": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Neon-Pegasus/ToneDev.git"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "forceExit": true,
+    "setupFiles": [
+      "./jestsetup.js"
+    ]
+  },
+  "engines": {
+    "node": "8.11.4"
   },
   "keywords": [],
   "author": "Neon-Pegasus",
@@ -38,7 +53,19 @@
     "react-router-dom": "^4.3.1",
     "sequelize": "^4.39.0",
     "sequelize-cli": "^4.1.1",
-    "watson-developer-cloud": "^3.11.1"
+    "watson-developer-cloud": "^3.11.1",
+    "babel-jest": "^23.6.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "enzyme-to-json": "^3.3.4",
+    "express": "^4.16.3",
+    "graphql": "^14.0.2",
+    "jest": "^23.6.0",
+    "puppeteer": "^1.8.0",
+    "react": "^16.5.2",
+    "react-apollo": "^2.2.2",
+    "react-dom": "^16.5.2",
+    "react-test-renderer": "^16.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
