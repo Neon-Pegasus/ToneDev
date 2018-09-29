@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Neon-Pegasus/ToneDev#readme",
   "dependencies": {
     "apollo-boost": "^0.1.16",
+    "apollo-server": "^2.1.0",
     "graphql": "^14.0.2",
     "react": "^16.5.2",
     "react-apollo": "^2.2.2",
