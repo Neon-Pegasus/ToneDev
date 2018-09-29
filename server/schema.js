@@ -1,7 +1,10 @@
 const typeDefs = `
   type Query {
-    #"A simple type for getting started!"
-    hello: String
+    allUsers: [User]
+  }
+  type User {
+    id: Int
+    firstName: String
   }
 `;
 
