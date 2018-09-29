@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
-const sequelize = new Sequelize(`postgres://ynjmqvmr:kXHdmqrI7KoThL4g3qxdH3tGum1gsWSL@tantor.db.elephantsql.com:5432/ynjmqvmr`);
+const sequelize = new Sequelize(`${process.env.DB_URL}`);
 
 sequelize
   .authenticate()
