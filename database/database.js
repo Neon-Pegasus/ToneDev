@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+/* const Sequelize = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(`${process.env.DB_URL}`);
@@ -29,3 +29,4 @@ sequelize.sync()
   });
 
 module.exports.User = User;
+ */
