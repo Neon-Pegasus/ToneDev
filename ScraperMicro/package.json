@@ -1,0 +1,23 @@
+{
+  "name": "ScraperMicro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-boost": "^0.1.16",
+    "apollo-server": "^2.1.0",
+    "dotenv": "^6.0.0",
+    "graphql": "^14.0.2",
+    "graphql-tools": "^4.0.0",
+    "pg": "^7.4.3",
+    "sequelize": "^4.39.0",
+    "sequelize-cli": "^4.1.1",
+    "puppeteer": "^1.8.0",
+  }
+}
