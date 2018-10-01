@@ -1,7 +1,22 @@
 default export const typeDefs = `
 
-type Repo {
-  name: String
+type TopRepo {
+  name: String!, 
+  description: String!, 
+  stargazers: init!, 
+  pullRequest {
+    title: String!, 
+    bodyText: String!, 
+    reviews{
+      state: String!, 
+      bodyText: String!,
+      comments {
+        bodyText: String!, 
+        updatedAt: init!
+      }
+    }
+  }
+  
 }
 `;
 
