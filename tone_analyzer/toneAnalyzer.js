@@ -7,7 +7,7 @@ const toneAnalyzer = new ToneAnalyzerV3({
   iam_apikey: process.env.TONE_ANALYZER_APIKEY,
 });
 
-const text = 'Great stuff';
+const text = 'Great stuff!';
 const toneParams = {
   tone_input: { text },
   content_type: 'application/json',
