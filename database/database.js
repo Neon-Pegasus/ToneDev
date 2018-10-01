@@ -1,8 +1,7 @@
-import config from 'dotenv';
-import Sequelize, { STRING } from 'sequelize'; 
+const Sequelize = require('sequelize');
+require('dotenv').config();
 
-console.log(process.env.DB);
-const sequelize = new Sequelize('process.env.DB');
+const sequelize = new Sequelize(`${process.env.DB_URL}`);
 
 sequelize
   .authenticate()
@@ -15,11 +14,18 @@ sequelize
 
 const User = sequelize.define('User', {
   firstName: {
-    type: STRING,
+    type: Sequelize.STRING,
   },
 });
 
-User.sync();
+sequelize.sync()
+  .then(() => {
+    User.create({
+      firstName: 'Joanne',
+    });
+  })
+  .catch((err) => {
+    console.log('this is error', err);
+  });
 
-const _User = User;
-export { _User as User };
+module.exports.User = User;

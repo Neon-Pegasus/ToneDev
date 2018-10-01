@@ -1,5 +1,8 @@
-const resolvers = {
+// import { User } from '../database/database';
+const { User } = require('../database/database.js');
+
+module.exports = {
   Query: {
-    hello: () => 'world',
+    allUsers: () => User.findAll({ attributes: 'firstName' }),
   },
 };
