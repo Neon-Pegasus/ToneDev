@@ -11,8 +11,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 passport.use(new GitHubStrategy({
-  clientID: process.env.Github_Client_ID,
-  clientSecret: process.env.Github_Client_Secret,
+  clientID: `${process.env.GITHUB_CLIENT_ID}`,
+  clientSecret: `${process.env.GITHUB_CLIENT_SECRET}`,
   callbackURL: `http://127.0.0.1:${port}/auth/github/callback`
 },
 (accessToken, refreshToken, profile, cb) => {
