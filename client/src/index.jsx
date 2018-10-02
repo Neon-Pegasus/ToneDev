@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Router, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import Login from './components/Login';
 
 class App extends React.Component {
   constructor() {
@@ -9,9 +12,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>HelloWorld hello</div>
+      <div>
+        hello
+      </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>), document.getElementById('app'));
