@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Router, Route, Link, Switch } from 'react-router-dom';
+import {
+  BrowserRouter, Route, Link, Switch,
+} from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 
@@ -19,10 +21,12 @@ class App extends React.Component {
             <li><Link to="/login">Login</Link></li>
           </ul>
         </nav>
-        <Switch>
-          <Route exact path="/" Component={Home} />
-          <Route path="/login" Component={Login} />
-        </Switch>
+        <div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
+          </Switch>
+        </div>
       </div>
     );
   }
