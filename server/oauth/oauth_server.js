@@ -10,7 +10,11 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '/../../client/dist')));
+app.use(express.static(path.join(__dirname, '../../client/dist')));
+app.use(require('express-session')({ secret: 'kitty', resave: true, saveUninitialized: true }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 passport.use(new GitHubStrategy({
   clientID: `${process.env.GITHUB_CLIENT_ID}`,
@@ -20,16 +24,24 @@ passport.use(new GitHubStrategy({
 (accessToken, refreshToken, profile, cb) => {
   console.log('accesstoke = ', accessToken);
   console.log('refreshtoken = ', refreshToken);
-  console.log('profile = ', profile);
+  // console.log('profile = ', profile);
   return cb(null, profile.id);
 }));
+
+passport.serializeUser((user, cb) => {
+  cb(null, user);
+});
+
+passport.deserializeUser((obj, cb) => {
+  cb(null, obj);
+});
 
 app.get('/auth/github', passport.authenticate('github'));
 
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   (req, res) => {
-    res.send('/');
+    res.redirect('/');
   });
 
 app.listen(port, () => {
