@@ -1,14 +1,19 @@
 import React from 'react';
+import {
+  Link,
+} from 'react-router-dom';
 
 const Organizations = () => (
   <div>
-    <ul>
-      <li>Google</li>
-      <li>Twitter</li>
-      <li>Facebook</li>
-      <li>Microsoft</li>
-      <li>Amazon</li>
-    </ul>
+    <Link to="/summary">Google</Link>
+    <br />
+    <Link to="/summary">Twitter</Link>
+    <br />
+    <Link to="/summary">Facebook</Link>
+    <br />
+    <Link to="/summary">Microsoft</Link>
+    <br />
+    <Link to="/summary">Amazon</Link>
   </div>
 );
 
