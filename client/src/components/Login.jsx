@@ -9,7 +9,8 @@ class Login extends React.Component {
   }
 
   githubLogin() {
-    window.location='http://localhost:3333/auth/github';
+    window.location = 'http://localhost:3333/auth/github';
+    this.setState({});
   }
 
   render() {

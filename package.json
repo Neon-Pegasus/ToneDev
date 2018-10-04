@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/nodeGateway.js",
+    "lint": "eslint './client/src/**/*.jsx' server",
     "dev-server": "nodemon server/nodeGateway.js",
     "react-dev": "webpack -d --watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
     "jest-tests": "jest"
   },
   "repository": {
