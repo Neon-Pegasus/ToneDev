@@ -8,15 +8,13 @@ class Login extends React.Component {
     this.githubLogin = this.githubLogin.bind(this);
   }
 
-
-
   githubLogin() {
     // window.location = 'http://localhost:4000/auth/github';
     this.setState({});
-    axios.get('/auth')
+    axios.get('/auth/github')
       .then((res) => {
         console.log(res);
-      })
+      });
   }
 
   render() {

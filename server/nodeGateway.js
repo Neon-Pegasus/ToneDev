@@ -5,7 +5,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const passport = require('passport');
-const oauth = require('./oauth/oauth_service');
+const cookieSession = require('cookie-session');
+const authRouter = require('./oauth/oauth_microservice');
+
+// const oauth = require('./oauth/oauth_service');
 
 const port = process.env.PORT || 4000;
 
@@ -17,20 +20,24 @@ gateway.use(bodyParser.urlencoded({ extended: true }));
 gateway.use(cors());
 
 //  authentication
-gateway.use(passport.initialize());
-passport.use(oauth.githubStrat);
-passport.serializeUser(oauth.serialize);
-passport.deserializeUser(oauth.serialize);
+require('./oauth/oauth_passport');
 
-gateway.get('/auth/github', passport.authenticate('github'));
+gateway.use(cookieSession({
+  maxAge: 24 * 60 * 60 * 1000,
+  keys: [process.env.COOKIE_KEY],
+}));
+gateway.use(passport.initialize());
+gateway.use(passport.session());
+gateway.use('/auth', authRouter);
+
+/* gateway.get('/auth/github', passport.authenticate('github'));
 
 gateway.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/login', session: false }),
   (req, res) => {
     res.setHeader('x-auth-token', req.user.token);
     res.status(200).redirect('/');
-  });
-
+  }); */
 
 //  IBM watson organization microservice
 gateway.use('/gateway/search', (req, res) => {

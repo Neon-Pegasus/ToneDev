@@ -1,9 +1,10 @@
 const GitHubStrategy = require('passport-github').Strategy;
+const passport = require('passport');
 require('dotenv').config();
 
 const port = process.env.PORT || 4000;
 
-module.exports.githubStrat = new GitHubStrategy({
+const githubStrat = new GitHubStrategy({
   clientID: `${process.env.GITHUB_CLIENT_ID}`,
   clientSecret: `${process.env.GITHUB_CLIENT_SECRET}`,
   callbackURL: `http://127.0.0.1:${port}/auth/github/callback`,
@@ -20,6 +21,10 @@ module.exports.githubStrat = new GitHubStrategy({
   return cb(null, userData);
 });
 
-module.exports.serialize = (user, cb) => (
+const serialize = (user, cb) => (
   cb(null, user)
 );
+
+passport.serializeUser(serialize);
+passport.deserializeUser(serialize);
+passport.use(githubStrat);
