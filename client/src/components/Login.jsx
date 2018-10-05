@@ -1,5 +1,6 @@
 import React from 'react';
 // import axios from 'axios';
+import queryString from 'query-string';
 
 
 class Login extends React.Component {
@@ -9,16 +10,29 @@ class Login extends React.Component {
     this.githubLogin = this.githubLogin.bind(this);
   }
 
+  componentWillMount() {
+    const { location, history } = this.props;
+    const query = queryString.parse(location.search);
+    if (query.token) {
+      window.localStorage.setItem('x-auth-token', query.token);
+      history.push('/');
+    }
+  }
+
   githubLogin() {
     window.location = 'http://localhost:4000/auth/github';
     this.setState({});
     // axios.get('/auth/github')
-    //   .then(() => {
-    //     console.log();
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   })
+/*     axios({
+      method: 'GET',
+      url: '/auth/github',
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      }) */
   }
 
   render() {
@@ -26,7 +40,7 @@ class Login extends React.Component {
       <div>
         Login with GitHub
         <br />
-        <button type="button" onClick={this.githubLogin}>Login with Github</button>
+        <a href="http://localhost:4000/auth/github">Login with GitHub</a>
       </div>
     );
   }

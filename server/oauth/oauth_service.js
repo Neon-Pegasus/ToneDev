@@ -10,8 +10,8 @@ module.exports.githubStrat = new GitHubStrategy({
 },
 (accessToken, refreshToken, profile, cb) => {
   // console.log('accesstoken = ', accessToken);
-  console.log('cb=', cb);
-  console.log('profile', profile);
+  // console.log('cb=', cb);
+  // console.log('profile', profile);
   const userData = {
     userId: profile.id,
     username: profile.username,
@@ -19,3 +19,7 @@ module.exports.githubStrat = new GitHubStrategy({
   };
   return cb(null, userData);
 });
+
+module.exports.serialize = (user, cb) => (
+  cb(null, user)
+);
