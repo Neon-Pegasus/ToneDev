@@ -1,5 +1,5 @@
 import React from 'react';
-
+// import axios from 'axios';
 
 class Login extends React.Component {
   constructor() {
@@ -9,8 +9,12 @@ class Login extends React.Component {
   }
 
   githubLogin() {
-    window.location = 'http://localhost:3333/auth/github';
+    window.location = 'http://localhost:4000/auth/github';
     this.setState({});
+    // axios.get('/auth/github')
+    //   .then((res) => {
+    //     console.log(res);
+    //   });
   }
 
   render() {
@@ -18,7 +22,8 @@ class Login extends React.Component {
       <div>
         Login with GitHub
         <br />
-        <button type="button" onClick={this.githubLogin}>Login with Github</button>
+        <a href="http://localhost:4000/auth/github">Login with GitHub</a>
+        <button type="button" onClick={this.githubLogin}>Github login</button>
       </div>
     );
   }
