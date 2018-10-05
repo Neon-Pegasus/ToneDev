@@ -17,7 +17,10 @@ const gateway = express();
 gateway.use(express.static(path.join(__dirname, '../client/dist')));
 gateway.use(bodyParser.json());
 gateway.use(bodyParser.urlencoded({ extended: true }));
-gateway.use(cors());
+gateway.use(cors({
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+}));
 
 //  authentication
 require('./oauth/oauth_passport');
@@ -29,7 +32,6 @@ gateway.use(cookieSession({
 gateway.use(passport.initialize());
 gateway.use(passport.session());
 gateway.use('/auth', authRouter);
-
 /* gateway.get('/auth/github', passport.authenticate('github'));
 
 gateway.get('/auth/github/callback',
