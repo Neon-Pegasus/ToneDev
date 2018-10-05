@@ -3,6 +3,8 @@ const axios = require('axios');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const path = require('path');
+const passport = require('passport');
+const oauth = require('./oauth/oauth_service');
 
 const port = process.env.PORT || 4000;
 
@@ -12,8 +14,28 @@ gateway.use(express.static(path.join(__dirname, '../client/dist')));
 gateway.use(bodyParser.json());
 gateway.use(bodyParser.urlencoded({ extended: true }));
 
-gateway.listen(port, () => console.log(`gateway server listening on ${port}`));
+//  authentication
+gateway.use(passport.initialize());
+passport.use(oauth.githubStrat);
+passport.serializeUser((user, cb) => {
+  cb(null, user);
+});
 
+passport.deserializeUser((obj, cb) => {
+  cb(null, obj);
+});
+
+gateway.get('/auth/github', passport.authenticate('github'));
+
+gateway.get('/auth/github/callback',
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  (req, res) => {
+    console.log(res);
+    res.redirect('/');
+  });
+
+
+//  IBM watson organization microservice
 gateway.use('/gateway/search', (req, res) => {
   axios({
     method: req.method,
@@ -28,3 +50,5 @@ gateway.use('/gateway/search', (req, res) => {
       res.send(err.message);
     });
 });
+
+gateway.listen(port, () => console.log(`gateway server listening on ${port}`));
