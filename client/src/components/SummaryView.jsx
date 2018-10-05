@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import PieChart from './PieChart';
+=======
+// import Chart from 'chart.js';
+>>>>>>> add placeholder data for summary views
 
 
 const Summary = () => (
@@ -10,8 +14,11 @@ const Summary = () => (
 
     <h2>Score</h2>
     <p>80% positive</p>
+<<<<<<< HEAD
 
     <PieChart />
+=======
+>>>>>>> add placeholder data for summary views
 
     <h2>Keywords</h2>
     <p>great, awesome, thanks!</p>
