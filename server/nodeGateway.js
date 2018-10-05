@@ -27,7 +27,7 @@ gateway.get('/auth/github', passport.authenticate('github'));
 gateway.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/login', session: false }),
   (req, res) => {
-    res.header('x-auth-token', req.user.token);
+    res.setHeader('x-auth-token', req.user.token);
     res.status(200).redirect('/');
   });
 
