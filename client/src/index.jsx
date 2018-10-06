@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {
   BrowserRouter, Route, Link, Switch,
 } from 'react-router-dom';
-import queryString from 'query-string';
+// import queryString from 'query-string';
 import Home from './components/Home';
 import Login from './components/Login';
 import Organizations from './components/Organizations';
@@ -16,16 +16,16 @@ class App extends React.Component {
     this.state = {};
   }
 
-  componentWillMount() {
-    // const { location, history } = this.props;
-    const query = queryString.parse(window.location.search);
-    console.log(query);
-    console.log(query.token);
-    if (query.token) {
-      window.localStorage.setItem('x-auth-token', query.token);
-      // window.history.push('/');
-    }
-  }
+  /*   componentWillMount() {
+      // const { location, history } = this.props;
+      const query = queryString.parse(window.location.search);
+      console.log(query);
+      console.log(query.token);
+      if (query.token) {
+        window.localStorage.setItem('x-auth-token', query.token);
+        // window.history.push('/');
+      }
+    } */
 
   render() {
     return (

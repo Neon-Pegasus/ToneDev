@@ -33,15 +33,6 @@ gateway.use(passport.initialize());
 gateway.use(passport.session());
 gateway.use('/auth', authRouter);
 
-// gateway.get('/auth/github', passport.authenticate('github'));
-
-// gateway.get('/auth/github/callback',
-//   passport.authenticate('github', { failureRedirect: '/login', session: false }),
-//   (req, res) => {
-//     res.setHeader('x-auth-token', req.user.token);
-//     res.status(200).redirect('/');
-//   });
-
 //  IBM watson organization microservice
 gateway.use('/gateway/search', (req, res) => {
   axios({
