@@ -32,14 +32,15 @@ gateway.use(cookieSession({
 gateway.use(passport.initialize());
 gateway.use(passport.session());
 gateway.use('/auth', authRouter);
-/* gateway.get('/auth/github', passport.authenticate('github'));
 
-gateway.get('/auth/github/callback',
-  passport.authenticate('github', { failureRedirect: '/login', session: false }),
-  (req, res) => {
-    res.setHeader('x-auth-token', req.user.token);
-    res.status(200).redirect('/');
-  }); */
+// gateway.get('/auth/github', passport.authenticate('github'));
+
+// gateway.get('/auth/github/callback',
+//   passport.authenticate('github', { failureRedirect: '/login', session: false }),
+//   (req, res) => {
+//     res.setHeader('x-auth-token', req.user.token);
+//     res.status(200).redirect('/');
+//   });
 
 //  IBM watson organization microservice
 gateway.use('/gateway/search', (req, res) => {
@@ -58,16 +59,20 @@ gateway.use('/gateway/search', (req, res) => {
 });
 
 // Stack Overflow data pulling Microservice
-gateway.use('/search/userId', (req, res) => {
+gateway.use('/api/user/so', (req, res) => {
   axios({
     method: req.method,
-    url: 'https://so-answer-search-tonedev.herokuapp.com',
+    url: 'https://so-answer-search-tonedev.herokuapp.com/api/user/so',
     params: req.params,
     body: req.body,
   })
     .then((data) => {
       res.send(data.data);
+      // axios request(POST) to user IBM microservice
     })
+    // .then((sentimentA) => {
+    //   // res.send(sentiment.data) back the client for making graphs
+    // })
     .catch((err) => {
       res.send(err.message);
     });
