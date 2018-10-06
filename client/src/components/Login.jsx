@@ -1,6 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 
+/* window.axios = require('axios');
+
+window.axios.defaults.headers.common = {
+  'X-CSRF-TOKEN': window.Laravel.csrfToken,
+  'X-Requested-With': 'XMLHttpRequest',
+}; */
+
 class Login extends React.Component {
   constructor() {
     super();
@@ -23,7 +30,7 @@ class Login extends React.Component {
       <div>
         Login with GitHub
         <br />
-        <a href="http://localhost:8888/auth/github">Login with GitHub</a>
+        <a href="/auth/github">Login with GitHub</a>
         <button type="button" onClick={this.githubLogin}>Github login</button>
       </div>
     );
