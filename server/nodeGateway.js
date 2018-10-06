@@ -10,7 +10,7 @@ const authRouter = require('./oauth/oauth_microservice');
 
 // const oauth = require('./oauth/oauth_service');
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8888;
 
 const gateway = express();
 

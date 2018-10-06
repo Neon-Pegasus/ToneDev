@@ -6,6 +6,8 @@ import {
 import queryString from 'query-string';
 import Home from './components/Home';
 import Login from './components/Login';
+import Organizations from './components/Organizations';
+import SummaryView from './components/SummaryView';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,6 +39,8 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
+            <Route path="/orgs" component={Organizations} />
+            <Route path="/summary" component={SummaryView} />
           </Switch>
         </div>
       </div>

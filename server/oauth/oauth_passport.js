@@ -2,7 +2,7 @@ const GitHubStrategy = require('passport-github').Strategy;
 const passport = require('passport');
 require('dotenv').config();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8888;
 
 const githubStrat = new GitHubStrategy({
   clientID: `${process.env.GITHUB_CLIENT_ID}`,
