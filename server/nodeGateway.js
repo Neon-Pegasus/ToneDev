@@ -57,4 +57,20 @@ gateway.use('/gateway/search', (req, res) => {
     });
 });
 
+// Stack Overflow data pulling Microservice
+gateway.use('/search/userId', (req, res) => {
+  axios({
+    method: req.method,
+    url: 'https://so-answer-search-tonedev.herokuapp.com',
+    params: req.params,
+    body: req.body,
+  })
+    .then((data) => {
+      res.send(data.data);
+    })
+    .catch((err) => {
+      res.send(err.message);
+    });
+});
+
 gateway.listen(port, () => console.log(`gateway server listening on ${port}`));
