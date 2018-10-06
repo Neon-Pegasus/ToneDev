@@ -9,7 +9,7 @@ class Login extends React.Component {
   }
 
   githubLogin() {
-    window.location = 'http://localhost:4000/auth/github';
+    window.location = 'http://localhost:8888/auth/github';
     this.setState({});
     // axios.get('/auth/github')
     //   .then((res) => {
@@ -22,7 +22,7 @@ class Login extends React.Component {
       <div>
         Login with GitHub
         <br />
-        <a href="http://localhost:4000/auth/github">Login with GitHub</a>
+        <a href="http://localhost:8888/auth/github">Login with GitHub</a>
         <button type="button" onClick={this.githubLogin}>Github login</button>
       </div>
     );
