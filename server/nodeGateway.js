@@ -3,7 +3,7 @@ const axios = require('axios');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const path = require('path');
-const cors = require('cors');
+// const cors = require('cors');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
 const authRouter = require('./oauth/oauth_microservice');
@@ -17,10 +17,10 @@ const gateway = express();
 gateway.use(express.static(path.join(__dirname, '../client/dist')));
 gateway.use(bodyParser.json());
 gateway.use(bodyParser.urlencoded({ extended: true }));
-gateway.use(cors({
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-}));
+// gateway.use(cors({
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true,
+// }));
 
 //  authentication
 require('./oauth/oauth_passport');
@@ -69,8 +69,11 @@ gateway.use('/api/user/so', (req, res) => {
     });
 });
 
+/* gateway.get('*', (req, res) => {
+  res.redirect('/'); */
+// catch all
 gateway.get('*', (req, res) => {
-  res.redirect('/');
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
 
 gateway.listen(port, () => console.log(`gateway server listening on ${port}`));
