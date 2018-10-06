@@ -7,7 +7,7 @@
     "start": "node server/nodeGateway.js",
     "lint": "eslint './client/src/**/*.jsx' server",
     "server-dev": "nodemon server/nodeGateway.js",
-    "react-dev": "webpack -d --watch",
+    "react-dev": "webpack --mode development --watch",
     "test": "npm run lint",
     "jest-tests": "jest"
   },
