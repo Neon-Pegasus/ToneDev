@@ -69,4 +69,8 @@ gateway.use('/api/user/so', (req, res) => {
     });
 });
 
+gateway.get('*', (req, res) => {
+  res.redirect('/');
+});
+
 gateway.listen(port, () => console.log(`gateway server listening on ${port}`));
