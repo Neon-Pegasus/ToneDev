@@ -18,7 +18,7 @@ class Home extends React.Component {
         <br />
         <Link to="/repos">View By Repo</Link>
         <br />
-        <Link to="/summary">See Your Stats</Link>
+        <Link to="/user">User Stats</Link>
       </div>
     );
   }
