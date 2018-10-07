@@ -4,9 +4,10 @@
   "description": "Tone analysis for github users based on their review comments",
   "main": "index.js",
   "scripts": {
-    "start": "node server/nodeGateway.js",
+    "heroku-postbuild": "webpack -p",
     "lint": "eslint './client/src/**/*.jsx' server",
     "server-dev": "nodemon server/nodeGateway.js",
+    "start": "node server/nodeGateway.js",
     "react-dev": "webpack --mode development --watch",
     "test": "npm run lint",
     "jest-tests": "jest"
