@@ -4,9 +4,9 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const path = require('path');
 // const cors = require('cors');
-const passport = require('passport');
-const cookieSession = require('cookie-session');
-const authRouter = require('./oauth/oauth_microservice');
+// const passport = require('passport');
+// const cookieSession = require('cookie-session');
+// const authRouter = require('./oauth/oauth_microservice');
 
 // const oauth = require('./oauth/oauth_service');
 
@@ -23,7 +23,7 @@ gateway.use(bodyParser.urlencoded({ extended: true }));
 // }));
 
 //  authentication
-require('./oauth/oauth_passport');
+/* require('./oauth/oauth_passport');
 
 gateway.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
@@ -31,7 +31,7 @@ gateway.use(cookieSession({
 }));
 gateway.use(passport.initialize());
 gateway.use(passport.session());
-gateway.use('/auth', authRouter);
+gateway.use('/auth', authRouter); */
 
 //  IBM watson organization microservice
 gateway.use('/gateway/search', (req, res) => {
