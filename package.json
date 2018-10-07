@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "webpack -p",
+    "jest-tests": "jest",
     "lint": "eslint './client/src/**/*.jsx' server",
+    "react-dev": "webpack --mode development --watch",
     "server-dev": "nodemon server/nodeGateway.js",
     "start": "node server/nodeGateway.js",
-    "react-dev": "webpack --mode development --watch",
-    "test": "npm run lint",
-    "jest-tests": "jest"
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
