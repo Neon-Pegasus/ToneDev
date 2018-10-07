@@ -23,7 +23,7 @@ gateway.use(bodyParser.urlencoded({ extended: true }));
 // }));
 
 //  authentication
-require('./oauth/oauth_passport');
+/* require('./oauth/oauth_passport');
 
 gateway.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
@@ -31,7 +31,7 @@ gateway.use(cookieSession({
 }));
 gateway.use(passport.initialize());
 gateway.use(passport.session());
-gateway.use('/auth', authRouter);
+gateway.use('/auth', authRouter); */
 
 //  IBM watson organization microservice
 gateway.use('/gateway/search', (req, res) => {
