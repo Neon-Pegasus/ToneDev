@@ -4,9 +4,9 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const path = require('path');
 // const cors = require('cors');
-const passport = require('passport');
-const cookieSession = require('cookie-session');
-const authRouter = require('./oauth/oauth_microservice');
+// const passport = require('passport');
+// const cookieSession = require('cookie-session');
+// const authRouter = require('./oauth/oauth_microservice');
 
 // const oauth = require('./oauth/oauth_service');
 
