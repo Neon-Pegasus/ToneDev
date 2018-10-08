@@ -43,11 +43,11 @@ gateway.get('/auth/github/callback',
 
 //  IBM watson organization microservice
 gateway.use('/gateway/org/sentiment', (req, res) => {
-  console.log('BODY:', req.body);
   axios({
     method: req.method,
     url: 'http://localhost:4000/',
-    body: req.body,
+    data: req.body,
+    headers: { 'Content-type': 'application/json' },
   })
     .then((data) => {
       res.send(data.data);
