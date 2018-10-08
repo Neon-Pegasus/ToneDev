@@ -1,23 +1,41 @@
 import React from 'react';
+import axios from 'axios';
 import PieChart from './PieChart';
 
 
-const Summary = () => (
-  <div>
-    <h1>Sentiment Analysis Summary</h1>
-    <h2>Overall Sentiment</h2>
-    <p>positive</p>
+class Summary extends React.Component {
+  componentDidMount() {
+    axios.post('gateway/org/sentiment', {
+      url: "www.wsj.com/news/markets",
+      features: {
+        sentiment: {},
+        keywords: {},
+      },
+    })
+      .then((res) => {
+        console.log(res);
+      });
+  }
 
-    <h2>Score</h2>
-    <p>80% positive</p>
+  render() {
+    return (
+      <div>
+        <h1>Sentiment Analysis Summary</h1>
+        <h2>Overall Sentiment</h2>
+        <p>positive</p>
 
-    <PieChart />
+        <h2>Score</h2>
+        <p>80% positive</p>
 
-    <h2>Keywords</h2>
-    <p>great, awesome, thanks!</p>
+        <PieChart />
 
-  </div>
-);
+        <h2>Keywords</h2>
+        <p>great, awesome, thanks!</p>
+
+      </div>
+    );
+  }
+}
 
 
 export default Summary;

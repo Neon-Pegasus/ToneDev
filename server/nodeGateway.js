@@ -42,11 +42,11 @@ gateway.get('/auth/github/callback',
   }); */
 
 //  IBM watson organization microservice
-gateway.use('/gateway/search', (req, res) => {
+gateway.use('/gateway/org/sentiment', (req, res) => {
+  console.log('BODY:', req.body);
   axios({
     method: req.method,
-    url: 'https://tonedev-micro-sentiment.herokuapp.com',
-    params: req.params,
+    url: 'http://localhost:4000/',
     body: req.body,
   })
     .then((data) => {
