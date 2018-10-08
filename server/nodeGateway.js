@@ -8,8 +8,6 @@ const passport = require('passport');
 const cookieSession = require('cookie-session');
 const authRouter = require('./oauth/oauth_microservice');
 
-// const oauth = require('./oauth/oauth_service');
-
 const port = process.env.PORT || 8888;
 
 const gateway = express();
@@ -32,14 +30,6 @@ gateway.use(cookieSession({
 gateway.use(passport.initialize());
 gateway.use(passport.session());
 gateway.use('/auth', authRouter);
-/* gateway.get('/auth/github', passport.authenticate('github'));
-
-gateway.get('/auth/github/callback',
-  passport.authenticate('github', { failureRedirect: '/login', session: false }),
-  (req, res) => {
-    res.setHeader('x-auth-token', req.user.token);
-    res.status(200).redirect('/');
-  }); */
 
 //  IBM watson organization microservice
 gateway.use('/gateway/org/sentiment', (req, res) => {
@@ -55,6 +45,33 @@ gateway.use('/gateway/org/sentiment', (req, res) => {
     .catch((err) => {
       res.send(err.message);
     });
+});
+
+// Stack Overflow data pulling Microservice
+gateway.use('/api/user/so', (req, res) => {
+  axios({
+    method: req.method,
+    url: 'https://so-answer-search-tonedev.herokuapp.com/api/user/so',
+    params: req.params,
+    body: req.body,
+  })
+    .then((data) => {
+      res.send(data.data);
+      // axios request(POST) to user IBM microservice
+    })
+    // .then((sentimentA) => {
+    //   // res.send(sentiment.data) back the client for making graphs
+    // })
+    .catch((err) => {
+      res.send(err.message);
+    });
+});
+
+/* gateway.get('*', (req, res) => {
+  res.redirect('/'); */
+// catch all
+gateway.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
 
 gateway.listen(port, () => console.log(`gateway server listening on ${port}`));
