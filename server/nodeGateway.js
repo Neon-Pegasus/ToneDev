@@ -45,7 +45,7 @@ gateway.get('/auth/github/callback',
 gateway.use('/gateway/org/sentiment', (req, res) => {
   axios({
     method: req.method,
-    url: 'http://localhost:4000/',
+    url: 'https://tonedev-micro-sentiment.herokuapp.com',
     data: req.body,
     headers: { 'Content-type': 'application/json' },
   })

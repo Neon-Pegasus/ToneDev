@@ -13,7 +13,7 @@ class Summary extends React.Component {
       },
     })
       .then((res) => {
-        console.log(res.data.sentimentAnalysis);
+        console.log(res.data);
       });
   }
 
