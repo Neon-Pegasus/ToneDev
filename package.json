@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "webpack -p",
-    "jest-tests": "jest",
+    "jest": "jest",
     "lint": "eslint './client/src/**/*.jsx' server",
     "react-dev": "webpack --mode development --watch",
-    "server-dev": "nodemon server/nodeGateway.js",
-    "start": "node server/nodeGateway.js",
+    "server-dev": "nodemon server/gatewayServer.js",
+    "start": "node server/gatewayServer.js",
     "test": "npm run lint"
   },
   "repository": {
@@ -19,12 +19,12 @@
   "jest": {
     "verbose": true,
     "collectCoverage": true,
+    "forceExit": true,
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "forceExit": true,
     "setupFiles": [
-      "./jestsetup.js"
+      "/Users/high-z/Desktop/HRR-33/ToneDev/jestSetup.js"
     ]
   },
   "engines": {
@@ -47,10 +47,13 @@
     "cookie-session": "^2.0.0-beta.3",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "eslint-plugin-jest": "^21.24.1",
     "express": "^4.16.3",
     "graphql": "^14.0.2",
     "graphql-tools": "^4.0.0",
-    "jest": "^23.6.0",
+    "moxios": "^0.4.0",
     "nodemon": "^1.18.4",
     "passport": "^0.4.0",
     "passport-github": "^1.1.0",
@@ -61,16 +64,19 @@
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",
-    "react-test-renderer": "^16.5.2",
     "sequelize": "^4.39.0",
     "sequelize-cli": "^4.1.1",
+    "supertest": "^3.3.0",
     "watson-developer-cloud": "^3.11.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
+    "babel-jest": "^23.6.0",
+    "enzyme-to-json": "^3.3.4",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "babel-core": "^7.0.0-bridge.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -80,6 +86,8 @@
     "html-webpack-plugin": "^3.2.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "webpack": "^4.20.2",
+    "react-test-renderer": "^16.5.2",
+    "jest": "^23.6.0",
     "webpack-cli": "^3.1.1"
   }
 }

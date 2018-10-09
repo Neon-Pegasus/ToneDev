@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders component correctly 1`] = `
+<div>
+  <Link
+    replace={false}
+    to="/summary"
+  >
+    Google
+  </Link>
+  <br />
+  <Link
+    replace={false}
+    to="/summary"
+  >
+    Twitter
+  </Link>
+  <br />
+  <Link
+    replace={false}
+    to="/summary"
+  >
+    Facebook
+  </Link>
+  <br />
+  <Link
+    replace={false}
+    to="/summary"
+  >
+    Microsoft
+  </Link>
+  <br />
+  <Link
+    replace={false}
+    to="/summary"
+  >
+    Amazon
+  </Link>
+</div>
+`;

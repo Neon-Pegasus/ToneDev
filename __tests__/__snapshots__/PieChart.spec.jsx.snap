@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders component correctly 1`] = `
+<Pie
+  data={
+    Object {
+      "datasets": Array [
+        Object {
+          "backgroundColor": Array [
+            "#36A2EB",
+            "#FF6384",
+          ],
+          "data": Array [
+            66,
+            34,
+          ],
+        },
+      ],
+      "labels": Array [
+        "Positive",
+        "Negative",
+      ],
+    }
+  }
+  options={
+    Object {
+      "title": Object {
+        "display": true,
+        "fontFamily": "Roboto",
+        "fontSize": 20,
+        "text": "Sentinment Analysis Overview",
+      },
+    }
+  }
+/>
+`;

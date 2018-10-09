@@ -3,6 +3,7 @@ module.exports = {
       "node": true,
       "es6": true,
       "browser": true,
+      'jest/globals': true,
   },
   extends: ["airbnb"],
   parserOptions: {
@@ -14,4 +15,5 @@ module.exports = {
   rules: {
       "no-underscore-dangle": "off"
   },
+  plugins: [ "jest" ],
 };

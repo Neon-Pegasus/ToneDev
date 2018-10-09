@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders component correctly 1`] = `
+<div>
+  <form>
+    <label
+      htmlFor="SOuserName"
+    >
+      Name:
+      <input
+        name="name"
+        type="text"
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <Summary />
+</div>
+`;
