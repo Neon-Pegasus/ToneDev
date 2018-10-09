@@ -5,27 +5,25 @@ exports[`App renders component correctly 1`] = `
   <h1>
     Welcome to ToneDev
   </h1>
-  <Router>
-    <Link
-      replace={false}
-      to="/orgs"
-    >
-      View Top 5 Organizations
-    </Link>
-    <br />
-    <Link
-      replace={false}
-      to="/repos"
-    >
-      View By Repo
-    </Link>
-    <br />
-    <Link
-      replace={false}
-      to="/user"
-    >
-      User Stats
-    </Link>
-  </Router>
+  <Link
+    replace={false}
+    to="/orgs"
+  >
+    View Top 5 Organizations
+  </Link>
+  <br />
+  <Link
+    replace={false}
+    to="/repos"
+  >
+    View By Repo
+  </Link>
+  <br />
+  <Link
+    replace={false}
+    to="/user"
+  >
+    User Stats
+  </Link>
 </div>
 `;
