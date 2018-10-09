@@ -38,7 +38,7 @@ class User extends React.Component {
       <div>
         <form>
           <label htmlFor="SOuserName">
-            Name:
+            StackOverflow Username:
             <input type="text" name="SOUsername" onChange={this.handleChange} />
           </label>
           <input type="button" value="Submit" onClick={this.submitSOname} />
