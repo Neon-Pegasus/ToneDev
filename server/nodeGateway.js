@@ -32,12 +32,12 @@ gateway.use(passport.session());
 gateway.use('/auth', authRouter);
 
 //  IBM watson organization microservice
-gateway.use('/gateway/search', (req, res) => {
+gateway.use('/gateway/org/sentiment', (req, res) => {
   axios({
     method: req.method,
     url: 'https://tonedev-micro-sentiment.herokuapp.com',
-    params: req.params,
-    body: req.body,
+    data: req.body,
+    headers: { 'Content-type': 'application/json' },
   })
     .then((data) => {
       res.send(data.data);
@@ -52,7 +52,7 @@ gateway.use('/api/user/so', (req, res) => {
   axios({
     method: req.method,
     url: 'https://so-answer-search-tonedev.herokuapp.com/api/user/so',
-    params: req.params,
+    headers: { 'Content-type': 'application/json' },
     body: req.body,
   })
     .then((data) => {
