@@ -74,4 +74,5 @@ gateway.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
 
-gateway.listen(port, () => console.log(`gateway server listening on ${port}`));
+module.exports.gateway = gateway;
+module.exports.port = port;

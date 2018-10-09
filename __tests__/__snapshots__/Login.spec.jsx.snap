@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders component correctly 1`] = `
+<div>
+  Login with GitHub
+  <br />
+  <a
+    href="/auth/github"
+  >
+    Login with GitHub
+  </a>
+</div>
+`;
