@@ -14,6 +14,9 @@ class Summary extends React.Component {
     })
       .then((res) => {
         console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
