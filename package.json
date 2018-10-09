@@ -24,7 +24,7 @@
       "enzyme-to-json/serializer"
     ],
     "setupFiles": [
-      "/Users/high-z/Desktop/HRR-33/ToneDev/jestSetup.js"
+      "./jestSetup.js"
     ]
   },
   "engines": {

@@ -11,9 +11,9 @@ const githubStrat = new GitHubStrategy({
 },
 (accessToken, refreshToken, profile, cb) => {
   const userData = {
-    userId: profile.id,
-    username: profile.username,
-    token: accessToken,
+    userId: profile.id, // github id(numeric)
+    username: profile.username, // github username
+    token: accessToken, // github sent token
   };
   return cb(null, userData);
 });

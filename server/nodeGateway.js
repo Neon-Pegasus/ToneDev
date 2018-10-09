@@ -53,6 +53,7 @@ gateway.use('/api/user/so', (req, res) => {
     method: req.method,
     url: 'https://so-answer-search-tonedev.herokuapp.com/api/user/so',
     headers: { 'Content-type': 'application/json' },
+    params: req.query,
     body: req.body,
   })
     .then((data) => {
@@ -67,8 +68,6 @@ gateway.use('/api/user/so', (req, res) => {
     });
 });
 
-/* gateway.get('*', (req, res) => {
-  res.redirect('/'); */
 // catch all
 gateway.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
