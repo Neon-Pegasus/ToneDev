@@ -13,6 +13,7 @@ class Organizations extends React.Component {
     };
   }
 
+  // TODO: make a GET request to github microservice through nodeGateway display the org names
   // componentDidMount() {
   //   axios.get('api/gateway/github/orglist')
   //     .then((response) => {
@@ -29,10 +30,8 @@ class Organizations extends React.Component {
   render() {
     const { orgs } = this.state;
     return (
-      // make a GET request to github microservice through nodeGateway display the org names
       <div>
         <ul>
-          {/* TODO: update this to render the SummaryView component instead of just being a link */}
           {orgs.map((org, i) => (
             <li key={i}>
               {org}
