@@ -40,7 +40,7 @@ gateway.use('api/gateway/org/sentiment', (req, res) => {
     headers: { 'Content-type': 'application/json' },
   })
     .then((data) => {
-      // TODO: send a 
+      // TODO: send a
       res.send(data.data);
     })
     .catch((err) => {
@@ -65,7 +65,7 @@ gateway.use('/api/user/so', (req, res) => {
     });
 });
 
-// ORGS route to Github Microservice
+// ORG NAMES route to Github Microservice
 gateway.use('api/gateway/github/orglist', (req, res) => {
   axios({
     method: req.body,
@@ -76,6 +76,22 @@ gateway.use('api/gateway/github/orglist', (req, res) => {
     .then(((data) => {
       res.send(data);
     }))
+    .catch((err) => {
+      res.send(err.message);
+    });
+});
+
+// ORG DATA route to Github Microservice
+gateway.use('api/gateway/github/orgdata', (req, res) => {
+  axios({
+    method: req.body,
+    // url: deployed link here
+    params: req.params,
+    body: req.body,
+  })
+    .then((data) => {
+      res.send(data);
+    })
     .catch((err) => {
       res.send(err.message);
     });
