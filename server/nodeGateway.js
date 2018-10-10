@@ -40,6 +40,7 @@ gateway.use('api/gateway/org/sentiment', (req, res) => {
     headers: { 'Content-type': 'application/json' },
   })
     .then((data) => {
+      // TODO: send a 
       res.send(data.data);
     })
     .catch((err) => {
@@ -65,7 +66,7 @@ gateway.use('/api/user/so', (req, res) => {
 });
 
 // Github Microservice
-gateway.use('api/gateway/github', (req, res) => {
+gateway.use('api/gateway/github/orglist', (req, res) => {
   axios({
     method: req.body,
     // url: deployed link here
@@ -79,6 +80,8 @@ gateway.use('api/gateway/github', (req, res) => {
       res.send(err.message);
     });
 });
+
+// TODO: add more endpoints for user and repo, update current github enpoint for orgs
 
 // catch all
 gateway.get('*', (req, res) => {
