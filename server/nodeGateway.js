@@ -32,7 +32,7 @@ gateway.use(passport.session());
 gateway.use('/auth', authRouter);
 
 //  IBM watson organization microservice
-gateway.use('/gateway/org/sentiment', (req, res) => {
+gateway.use('api/gateway/org/sentiment', (req, res) => {
   axios({
     method: req.method,
     url: 'https://tonedev-micro-sentiment.herokuapp.com',
@@ -58,11 +58,23 @@ gateway.use('/api/user/so', (req, res) => {
   })
     .then((data) => {
       res.send(data.data);
-      // axios request(POST) to user IBM microservice
     })
-    // .then((sentimentA) => {
-    //   // res.send(sentiment.data) back the client for making graphs
-    // })
+    .catch((err) => {
+      res.send(err.message);
+    });
+});
+
+// Github Microservice
+gateway.use('api/gateway/github', (req, res) => {
+  axios({
+    method: req.body,
+    // url: deployed link here
+    params: req.params,
+    body: req.body,
+  })
+    .then(((data) => {
+      res.send(data);
+    }))
     .catch((err) => {
       res.send(err.message);
     });

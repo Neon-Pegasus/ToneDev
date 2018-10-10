@@ -5,7 +5,7 @@ import {
 
 const Organizations = () => (
   <div>
-    <Link to="/summary">Google</Link>
+    <Link to="/summary" orgName="Google">Google</Link>
     <br />
     <Link to="/summary">Twitter</Link>
     <br />
