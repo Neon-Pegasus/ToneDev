@@ -3,6 +3,7 @@ import React from 'react';
 //   Link,
 // } from 'react-router-dom';
 // import axios from 'axios';
+import Summary from './SummaryView';
 
 
 class Organizations extends React.Component {
@@ -10,7 +11,9 @@ class Organizations extends React.Component {
     super();
     this.state = {
       orgs: ['Google', 'Microsoft', 'Apple', 'Amazon', 'Facebook'],
+      showSummary: false,
     };
+    this.renderView = this.renderView.bind(this);
   }
 
   // TODO: make a GET request to github microservice through nodeGateway display the org names
@@ -27,13 +30,29 @@ class Organizations extends React.Component {
   //     });
   // }
 
+  renderView(name) {
+    // console.log(name.org);
+    // return <Summary orgName={name.org} />;
+    this.setState({
+      showSummary: true,
+      orgName: name.org,
+    });
+  }
+
   render() {
     const { orgs } = this.state;
+    if (this.state.showSummary === true) {
+      return (
+        <div>
+          <Summary orgName={this.state.orgName}/>
+        </div>
+      );
+    }
     return (
       <div>
         <ul>
-          {orgs.map((org, i) => (
-            <li key={i}>
+          {orgs.map(org => (
+            <li key={org} onClick={() => this.renderView({ org })}>
               {org}
             </li>
           ))}
@@ -42,5 +61,6 @@ class Organizations extends React.Component {
     );
   }
 }
+
 
 export default Organizations;

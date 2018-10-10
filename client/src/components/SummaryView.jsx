@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import PropTypes from 'prop-types';
 import PieChart from './PieChart';
 
@@ -11,12 +11,12 @@ class Summary extends React.Component {
   }
 
 
-  componentDidMount() {
-    /* NOTE: need to pass url with correct endpoint
-     down as a prop and use it as a var in the request */
-    this.getData();
-    this.getAnalysis();
-  }
+  // componentDidMount() {
+  //   /* NOTE: need to pass url with correct endpoint
+  //    down as a prop and use it as a var in the request */
+  //   this.getData();
+  //   this.getAnalysis();
+  // }
 
   // getData() {
   //   // TODO: add a GET request to github microservice orgdata endpoint to get the comments for a specific org
