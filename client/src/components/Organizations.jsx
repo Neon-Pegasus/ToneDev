@@ -2,14 +2,14 @@ import React from 'react';
 // import {
 //   Link,
 // } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 class Organizations extends React.Component {
   constructor() {
     super();
     this.state = {
-      orgs: ['Google', 'Microsoft'],
+      orgs: ['Google', 'Microsoft', 'Apple', 'Amazon', 'Facebook'],
     };
   }
 

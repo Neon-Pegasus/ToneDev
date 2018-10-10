@@ -10,23 +10,33 @@ class Summary extends React.Component {
     this.state = {};
   }
 
+
   componentDidMount() {
-    // TODO: add a GET request to github microservice orgs endpoint to get the comments for a specific org
-    // NOTE: need to pass url with correct endpoint down as a prop and use it as a var in the request
-    axios.post('api/gateway/org/sentiment', {
-      text: 'Here\'s a summary of changes that I incorporated from the other two answers. First, I made the red dot render correctly.Then I drew in the lines by eyeballing where the screenMinX and screenMaxX are. You may want to use a more precise measurement depending on your needs.Note thatnever existed before, so I created it to allowandto be available.',
-      features: {
-        sentiment: {},
-        keywords: {},
-      },
-    })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    /* NOTE: need to pass url with correct endpoint
+     down as a prop and use it as a var in the request */
+    this.getData();
+    this.getAnalysis();
   }
+
+  // getData() {
+  //   // TODO: add a GET request to github microservice orgdata endpoint to get the comments for a specific org
+  // }
+
+  // getAnalysis() {
+  //   axios.post('api/gateway/org/sentiment', {
+  //     text: 'Here\'s a summary of changes that I incorporated from the other two answers. First, I made the red dot render correctly.Then I drew in the lines by eyeballing where the screenMinX and screenMaxX are. You may want to use a more precise measurement depending on your needs.Note thatnever existed before, so I created it to allowandto be available.',
+  //     features: {
+  //       sentiment: {},
+  //       keywords: {},
+  //     },
+  //   })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
 
   render() {
     const { orgName } = this.props;
