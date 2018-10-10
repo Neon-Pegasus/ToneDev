@@ -65,7 +65,7 @@ gateway.use('/api/user/so', (req, res) => {
     });
 });
 
-// Github Microservice
+// ORGS route to Github Microservice
 gateway.use('api/gateway/github/orglist', (req, res) => {
   axios({
     method: req.body,
