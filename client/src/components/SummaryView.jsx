@@ -16,6 +16,7 @@ class Summary extends React.Component {
         'Note thatnever existed before, so I created it to allowandto be available.'
       ],
       sentiment: 'positive',
+      score: 75,
     };
     this.getAnalysis = this.getAnalysis.bind(this);
   }
