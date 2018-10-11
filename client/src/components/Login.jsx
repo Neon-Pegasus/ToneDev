@@ -9,8 +9,11 @@ class Login extends React.Component {
   render() {
     return (
       <div>
+        <h1>ToneDev</h1>
         <br />
-        <a className="login-button" href="/auth/github">Login with GitHub</a>
+        <button type="submit">
+          <a className="login-button" href="/auth/github">Login with GitHub</a>
+        </button>
       </div>
     );
   }

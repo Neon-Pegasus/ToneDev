@@ -17,7 +17,7 @@ class Home extends React.Component {
           <nav>
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/login">Logout</Link></li>
             </ul>
           </nav>
         </div>

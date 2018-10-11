@@ -1,7 +1,7 @@
 import React from 'react';
-// import {
-//   Link,
-// } from 'react-router-dom';
+import {
+  Link,
+} from 'react-router-dom';
 import axios from 'axios';
 import Summary from './SummaryView';
 
@@ -45,15 +45,30 @@ class Organizations extends React.Component {
     if (showSummary === true) {
       return (
         <div>
+          <div>
+            <nav>
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/login">Login</Link></li>
+              </ul>
+            </nav>
+          </div>
           <Summary orgName={orgName} />
         </div>
       );
     }
     return (
       <div>
-
+        <div>
+          <nav>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/login">Logout</Link></li>
+            </ul>
+          </nav>
+        </div>
         {orgs.map(org => (
-          <div>
+          <div key={org}>
             <button type="submit" key={org} onClick={() => this.renderView({ org })}>
               {org}
             </button>
