@@ -20,10 +20,10 @@ class Organizations extends React.Component {
   // componentDidMount() {
   //   axios.get('api/gateway/github/orglist')
   //     .then((response) => {
-  //       console.log(response);
-  //       this.setState({
-  //         orgs: response,
-  //       });
+  //       console.log('HELLO FROM ORGS GET: ', response);
+  //       // this.setState({
+  //       //   orgs: response,
+  //       // });
   //     })
   //     .catch((error) => {
   //       console.log(error);
@@ -31,8 +31,6 @@ class Organizations extends React.Component {
   // }
 
   renderView(name) {
-    // console.log(name.org);
-    // return <Summary orgName={name.org} />;
     this.setState({
       showSummary: true,
       orgName: name.org,
@@ -41,10 +39,13 @@ class Organizations extends React.Component {
 
   render() {
     const { orgs } = this.state;
-    if (this.state.showSummary === true) {
+    const { orgName } = this.state;
+    const { showSummary } = this.state;
+
+    if (showSummary === true) {
       return (
         <div>
-          <Summary orgName={this.state.orgName}/>
+          <Summary orgName={orgName} />
         </div>
       );
     }

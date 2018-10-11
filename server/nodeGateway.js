@@ -40,7 +40,6 @@ gateway.use('api/gateway/org/sentiment', (req, res) => {
     headers: { 'Content-type': 'application/json' },
   })
     .then((data) => {
-      // TODO: send a
       res.send(data.data);
     })
     .catch((err) => {
@@ -67,14 +66,16 @@ gateway.use('/api/user/so', (req, res) => {
 
 // ORG NAMES route to Github Microservice
 gateway.use('api/gateway/github/orglist', (req, res) => {
+  console.log('REQUEST METHOD FOR ORGS: ', req.method);
   axios({
-    method: req.body,
-    // url: deployed link here
+    method: req.method,
+    url: 'https://tondev-micro-github.herokuapp.com/',
+    headers: { 'Content-type': 'application/json' },
     params: req.params,
     body: req.body,
   })
     .then(((data) => {
-      res.send(data);
+      res.send(data.data);
     }))
     .catch((err) => {
       res.send(err.message);
@@ -84,8 +85,8 @@ gateway.use('api/gateway/github/orglist', (req, res) => {
 // ORG DATA route to Github Microservice
 gateway.use('api/gateway/github/orgdata', (req, res) => {
   axios({
-    method: req.body,
-    // url: deployed link here
+    method: req.method,
+    url: 'https://tondev-micro-github.herokuapp.com/',
     params: req.params,
     body: req.body,
   })
