@@ -101,6 +101,15 @@ Overall Sentiment
           {score}
         </p>
 
+        <p>
+          Looks like this organization has a pretty high score!
+          <br />
+          They have an overall positive tone, so it's probably a great place
+          get involved, learn and grow.
+          <br />
+          You should definitely reach out!
+        </p>
+
         <PieChart score={Math.round(score * 100)} sentiment={sentiment} />
 
         {/* <h2>Keywords</h2>
