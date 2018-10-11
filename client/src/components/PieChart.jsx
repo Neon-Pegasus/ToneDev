@@ -23,7 +23,7 @@ const PieChart = (props) => {
     title: {
       display: true,
       text: 'Sentinment Analysis Overview',
-      fontFamily: 'Roboto',
+      fontFamily: 'Raleway',
       fontSize: 20,
     },
   };
