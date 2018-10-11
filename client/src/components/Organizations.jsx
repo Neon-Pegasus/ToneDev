@@ -51,13 +51,15 @@ class Organizations extends React.Component {
     }
     return (
       <div>
-        <ul>
-          {orgs.map(org => (
-            <li key={org} onClick={() => this.renderView({ org })}>
+
+        {orgs.map(org => (
+          <div>
+            <button type="submit" key={org} onClick={() => this.renderView({ org })}>
               {org}
-            </li>
-          ))}
-        </ul>
+            </button>
+            <br />
+          </div>
+        ))}
       </div>
     );
   }

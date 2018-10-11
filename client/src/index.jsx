@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  BrowserRouter, Route, Link, Switch,
+  BrowserRouter, Route, Switch,
 } from 'react-router-dom';
 // import queryString from 'query-string';
 import Home from './components/Home';
