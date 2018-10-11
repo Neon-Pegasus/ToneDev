@@ -2,13 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import Summary from '../SummaryView';
 import RadarChart from './RadarChart';
+import ThreePieChart from './ThreeFieldPieChart';
 
 class User extends React.Component {
   constructor() {
     super();
     this.state = {
       SOUsername: '',
-      // pieData: {},
+      pieData: {},
       radarData: {},
     };
     this.handleChange = this.handleChange.bind(this);
@@ -65,8 +66,8 @@ class User extends React.Component {
           },
         ];
         this.setState({
-          // pieData: Object.assign({}, exampleData[0]),
           radarData: Object.assign({}, exampleData[1].emotion),
+          pieData: Object.assign({}, exampleData[0].sentiment),
         });
       })
       .catch((err) => {
@@ -75,17 +76,18 @@ class User extends React.Component {
   }
 
   render() {
-    const { radarData } = this.state;
+    const { pieData, radarData } = this.state;
     return (
       <div>
         <form>
           <label htmlFor="SOuserName">
-            StackOverflow Username:
+          StackOverflow Username:
             <input type="text" name="SOUsername" onChange={this.handleChange} />
           </label>
           <input type="button" value="Submit" onClick={this.submitSOname} />
         </form>
         <RadarChart data={radarData} />
+        <ThreePieChart score={pieData} />
         <Summary />
 
       </div>
