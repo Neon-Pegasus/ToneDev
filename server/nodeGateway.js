@@ -65,7 +65,7 @@ gateway.use('/api/user/so', (req, res) => {
 });
 
 // ORG NAMES route to Github Microservice
-gateway.use('api/gateway/github/orglist', (req, res) => {
+gateway.use('/api/gateway/github/orglist', (req, res) => {
   console.log('REQUEST METHOD FOR ORGS: ', req.method);
   axios({
     method: req.method,
@@ -83,7 +83,7 @@ gateway.use('api/gateway/github/orglist', (req, res) => {
 });
 
 // ORG DATA route to Github Microservice
-gateway.use('api/gateway/github/orgdata', (req, res) => {
+gateway.use('/api/gateway/github/orgdata', (req, res) => {
   axios({
     method: req.method,
     url: 'https://tondev-micro-github.herokuapp.com/',

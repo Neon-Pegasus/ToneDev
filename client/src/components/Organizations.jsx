@@ -2,7 +2,7 @@ import React from 'react';
 // import {
 //   Link,
 // } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 import Summary from './SummaryView';
 
 
@@ -17,18 +17,18 @@ class Organizations extends React.Component {
   }
 
   // TODO: make a GET request to github microservice through nodeGateway display the org names
-  // componentDidMount() {
-  //   axios.get('api/gateway/github/orglist')
-  //     .then((response) => {
-  //       console.log('HELLO FROM ORGS GET: ', response);
-  //       // this.setState({
-  //       //   orgs: response,
-  //       // });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
+  componentDidMount() {
+    axios.get('/api/gateway/github/orglist')
+      .then((response) => {
+        console.log('ORGS GET: ', response.data);
+        // this.setState({
+        //   orgs: response,
+        // });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   renderView(name) {
     this.setState({
