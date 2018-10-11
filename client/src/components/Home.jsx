@@ -13,6 +13,14 @@ class Home extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          <nav>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/login">Login</Link></li>
+            </ul>
+          </nav>
+        </div>
         <h1>Welcome to ToneDev</h1>
         <Link to="/orgs">View Top 5 Organizations</Link>
         <br />

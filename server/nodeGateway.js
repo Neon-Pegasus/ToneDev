@@ -32,7 +32,7 @@ gateway.use(passport.session());
 gateway.use('/auth', authRouter);
 
 //  IBM watson organization microservice
-gateway.use('api/gateway/org/sentiment', (req, res) => {
+gateway.use('/api/gateway/org/sentiment', (req, res) => {
   axios({
     method: req.method,
     url: 'https://tonedev-micro-sentiment.herokuapp.com',
@@ -64,21 +64,40 @@ gateway.use('/api/user/so', (req, res) => {
     });
 });
 
-// Github Microservice
-gateway.use('api/gateway/github', (req, res) => {
+// ORG NAMES route to Github Microservice
+gateway.use('/api/gateway/github/orglist', (req, res) => {
   axios({
-    method: req.body,
-    // url: deployed link here
+    method: req.method,
+    url: 'https://tondev-micro-github.herokuapp.com/',
+    headers: { 'Content-type': 'application/json' },
     params: req.params,
     body: req.body,
   })
     .then(((data) => {
-      res.send(data);
+      res.send(data.data);
     }))
     .catch((err) => {
       res.send(err.message);
     });
 });
+
+// ORG DATA route to Github Microservice
+gateway.use('/api/gateway/github/orgdata', (req, res) => {
+  axios({
+    method: req.method,
+    url: 'https://tondev-micro-github.herokuapp.com/',
+    params: req.params,
+    body: req.body,
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send(err.message);
+    });
+});
+
+// TODO: add more endpoints for user and repo, update current github enpoint for orgs
 
 // catch all
 gateway.get('*', (req, res) => {
