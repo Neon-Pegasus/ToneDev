@@ -37,7 +37,7 @@ class Summary extends React.Component {
       endpoint to get the comments for a specific org */
     axios.get('/api/gateway/github/orgdata')
       .then((data) => {
-        console.log('ORG DATA: ', data);
+        // console.log('ORG DATA: ', data);
         this.setState({
           comments: data,
         });
@@ -58,8 +58,8 @@ class Summary extends React.Component {
         },
       })
         .then((res) => {
-          console.log(comment);
-          console.log(res.data);
+          // console.log(comment);
+          // console.log(res.data);
           const commentScore = res.data.sentimentAnalysis.sentiment.document.score;
           this.setState({
             sentiment: res.data.sentimentAnalysis.sentiment.document.label,
@@ -100,7 +100,7 @@ Overall Sentiment
           {score}
         </p>
 
-        <PieChart score={Math.round(score * 100)} />
+        <PieChart score={Math.round(score * 100)} sentiment={sentiment} />
 
         {/* <h2>Keywords</h2>
         <p>great, awesome, thanks!</p> */}
