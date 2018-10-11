@@ -19,19 +19,30 @@ class Summary extends React.Component {
       score: 75,
     };
     this.getAnalysis = this.getAnalysis.bind(this);
+    this.getData = this.getData.bind(this);
   }
 
   componentDidMount() {
   /* NOTE: need to pass url with correct endpoint
      down as a prop and use it as a var in the request */
-  // this.getData();
+    this.getData();
     this.getAnalysis();
   }
 
-  // getData() {
+  getData() {
   /*   // TODO: add a GET request to github microservice orgdata
       endpoint to get the comments for a specific org */
-  // }
+    axios.get('/api/gateway/github/orgdata')
+      .then((data) => {
+        console.log('ORG DATA: ', data);
+        this.setState({
+          comments: data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   getAnalysis() {
     const { comments } = this.state;
