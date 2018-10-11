@@ -32,7 +32,7 @@ gateway.use(passport.session());
 gateway.use('/auth', authRouter);
 
 //  IBM watson organization microservice
-gateway.use('api/gateway/org/sentiment', (req, res) => {
+gateway.use('/api/gateway/org/sentiment', (req, res) => {
   axios({
     method: req.method,
     url: 'https://tonedev-micro-sentiment.herokuapp.com',
