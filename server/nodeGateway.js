@@ -49,7 +49,6 @@ gateway.use('/api/gateway/org/sentiment', (req, res) => {
 
 // Stack Overflow data pulling Microservice
 gateway.use('/api/user/so', (req, res) => {
-  console.log('line 52')
   axios({
     method: req.method,
     url: 'https://so-answer-search-tonedev.herokuapp.com/api/user/so',
@@ -58,8 +57,6 @@ gateway.use('/api/user/so', (req, res) => {
     body: req.body,
   })
     .then((data) => {
-      // https://tonedev-user-ibm.herokuapp.com
-      // http://localhost:4654
       const { username, answers } = data.data;
       return axios.post('https://tonedev-user-ibm.herokuapp.com', {
         username,
@@ -67,11 +64,9 @@ gateway.use('/api/user/so', (req, res) => {
       });
     })
     .then((result) => {
-      console.log('what is result', result);
       res.send(result.data);
     })
     .catch((err) => {
-      console.log('line 73')
       res.send(err.message);
     });
 });

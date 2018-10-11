@@ -1,12 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import Summary from '../SummaryView';
+import RadarChart from './RadarChart';
 
 class User extends React.Component {
   constructor() {
     super();
     this.state = {
       SOUsername: '',
+      // pieData: {},
+      radarData: {},
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitSOname = this.submitSOname.bind(this);
@@ -27,6 +30,44 @@ class User extends React.Component {
     })
       .then((res) => {
         console.log(res.data);
+        const exampleData = [
+          {
+            sentiment: {
+              labels: [
+                'Neutral',
+                'Positive',
+                'Negative',
+              ],
+              data: [
+                9,
+                12,
+                8,
+              ],
+            },
+          },
+          {
+            emotion: {
+              labels: [
+                'Sadness',
+                'Joy',
+                'Fear',
+                'Disgust',
+                'Anger',
+              ],
+              data: [
+                0.2577819655172414,
+                0.1826078620689655,
+                0.06859010344827586,
+                0.05188851724137931,
+                0.09804044827586207,
+              ],
+            },
+          },
+        ];
+        this.setState({
+          // pieData: Object.assign({}, exampleData[0]),
+          radarData: Object.assign({}, exampleData[1].emotion),
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -34,6 +75,7 @@ class User extends React.Component {
   }
 
   render() {
+    const { radarData } = this.state;
     return (
       <div>
         <form>
@@ -43,6 +85,7 @@ class User extends React.Component {
           </label>
           <input type="button" value="Submit" onClick={this.submitSOname} />
         </form>
+        <RadarChart data={radarData} />
         <Summary />
 
       </div>
