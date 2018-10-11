@@ -60,10 +60,11 @@ class Summary extends React.Component {
         .then((res) => {
           // console.log(comment);
           // console.log(res.data);
+          let { score } = this.state;
           const commentScore = res.data.sentimentAnalysis.sentiment.document.score;
           this.setState({
             sentiment: res.data.sentimentAnalysis.sentiment.document.label,
-            score: this.state.score += commentScore,
+            score: score += commentScore,
           });
         })
         .catch((err) => {

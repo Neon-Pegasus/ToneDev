@@ -9,9 +9,8 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        Login with GitHub
         <br />
-        <a href="/auth/github">Login with GitHub</a>
+        <a className="login-button" href="/auth/github">Login with GitHub</a>
       </div>
     );
   }
