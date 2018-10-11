@@ -56,8 +56,16 @@ gateway.use('/api/user/so', (req, res) => {
     params: req.query,
     body: req.body,
   })
-    .then((data) => {
-      res.send(data.data);
+    .then(({ data }) => {
+      // https://tonedev-user-ibm.herokuapp.com
+      // http://localhost:4654
+      return axios.post('http://localhost:4654', {
+        username: 'hello',
+        SOAnswers: ['meow meow', 'mehh'],
+      });
+    })
+    .then((result) => {
+      res.send(result.data);
     })
     .catch((err) => {
       res.send(err.message);
