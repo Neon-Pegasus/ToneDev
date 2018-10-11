@@ -57,7 +57,14 @@ gateway.use('/api/user/so', (req, res) => {
     body: req.body,
   })
     .then((data) => {
-      res.send(data.data);
+      const { username, answers } = data.data;
+      return axios.post('https://tonedev-user-ibm.herokuapp.com', {
+        username,
+        SOAnswers: answers,
+      });
+    })
+    .then((result) => {
+      res.send(result.data);
     })
     .catch((err) => {
       res.send(err.message);
