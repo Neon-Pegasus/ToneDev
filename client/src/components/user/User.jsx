@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import {
+  Link,
+} from 'react-router-dom';
 import Summary from '../SummaryView';
 import RadarChart from './RadarChart';
 
@@ -78,6 +81,14 @@ class User extends React.Component {
     const { radarData } = this.state;
     return (
       <div>
+        <div>
+          <nav>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/login">Login</Link></li>
+            </ul>
+          </nav>
+        </div>
         <form>
           <label htmlFor="SOuserName">
             StackOverflow Username:
