@@ -37,7 +37,7 @@ class Summary extends React.Component {
       endpoint to get the comments for a specific org */
     axios.get('/api/gateway/github/orgdata')
       .then((data) => {
-        // console.log('ORG DATA: ', data);
+        console.log('ORG DATA: ', data.data);
         this.setState({
           comments: data,
         });
