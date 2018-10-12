@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 const PieChart = (props) => {
   const { score } = props;
   const remainder = 100 - score;
+  // console.log(score);
+  // console.log(remainder);
   const data = {
     labels: ['Positive', 'Negative'],
     datasets: [

@@ -10,7 +10,7 @@ class Organizations extends React.Component {
   constructor() {
     super();
     this.state = {
-      orgs: ['Google', 'Microsoft', 'Apple', 'Amazon', 'Facebook'],
+      orgs: [],
       showSummary: false,
     };
     this.renderView = this.renderView.bind(this);
@@ -20,15 +20,27 @@ class Organizations extends React.Component {
   componentDidMount() {
     axios.get('/api/gateway/github/orglist')
       .then((response) => {
-        console.log('ORGS GET: ', response.data);
-        // this.setState({
-        //   orgs: response,
-        // });
+        // console.log('ORGS GET: ', response.data);
+        const orglist = response.data;
+        const orgs = [];
+        orglist.map((org) => {
+          if (org.orgName !== null) {
+            orgs.push(org.orgName);
+          }
+          return orgs;
+        });
+        this.setState({
+          orgs,
+        });
       })
       .catch((error) => {
         console.log(error);
       });
   }
+
+  // getOrgData(org) {
+
+  // }
 
   renderView(name) {
     this.setState({
