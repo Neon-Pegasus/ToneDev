@@ -75,12 +75,13 @@ gateway.use('/api/user/so', (req, res) => {
 gateway.use('/api/gateway/github/orglist', (req, res) => {
   axios({
     method: req.method,
-    url: 'https://tondev-micro-github.herokuapp.com/',
+    url: 'https://tondev-micro-github.herokuapp.com/api/gateway/github/orglist',
     headers: { 'Content-type': 'application/json' },
     params: req.params,
     body: req.body,
   })
     .then(((data) => {
+      // console.log(data);
       res.send(data.data);
     }))
     .catch((err) => {
@@ -92,12 +93,14 @@ gateway.use('/api/gateway/github/orglist', (req, res) => {
 gateway.use('/api/gateway/github/orgdata', (req, res) => {
   axios({
     method: req.method,
-    url: 'https://tondev-micro-github.herokuapp.com/',
+    url: 'https://tondev-micro-github.herokuapp.com',
+    headers: { 'Content-type': 'application/json' },
     params: req.params,
     body: req.body,
   })
     .then((data) => {
-      res.send(data);
+      // console.log(data);
+      res.send(data.data);
     })
     .catch((err) => {
       res.send(err.message);
