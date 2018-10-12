@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "webpack -p",
-    "jest": "jest",
+    "jest": "NODE_ENV=test jest",
     "lint": "eslint './client/src/**/*.jsx' server",
     "react-dev": "webpack --mode development --watch",
     "server-dev": "nodemon server/gatewayServer.js",
