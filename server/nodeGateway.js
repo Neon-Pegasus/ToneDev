@@ -6,6 +6,8 @@ const path = require('path');
 const cors = require('cors');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+const cookieParser = require('cookie-parser');
+const { logInChecker } = require('./oauth/authChecker');
 const authRouter = require('./oauth/oauth_microservice');
 
 const port = process.env.PORT || 8888;
@@ -19,12 +21,18 @@ gateway.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
+gateway.use(cookieParser());
+
+gateway.get('/testing/cookie', logInChecker, (req, res) => {
+  console.log('what is req.cookies', req.cookies);
+  res.send('hi');
+});
 
 //  authentication
 require('./oauth/oauth_passport');
 
 gateway.use(cookieSession({
-  maxAge: 24 * 60 * 60 * 1000,
+  maxAge: 24 * 60 * 60 * 1000, // 24 hrs
   keys: [process.env.COOKIE_KEY],
 }));
 gateway.use(passport.initialize());
