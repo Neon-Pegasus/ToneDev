@@ -13,21 +13,24 @@ import User from './components/user/User';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      username: '',
+    };
   }
 
-  /*   componentWillMount() {
-      // const { location, history } = this.props;
-      const query = queryString.parse(window.location.search);
-      console.log(query);
-      console.log(query.token);
-      if (query.token) {
-        window.localStorage.setItem('x-auth-token', query.token);
-        // window.history.push('/');
-      }
-    } */
+  // componentWillMount() {
+  //   // const { location, history } = this.props;
+  //   const query = queryString.parse(window.location.search);
+  //   console.log(query);
+  //   console.log(query.token);
+  //   if (query.token) {
+  //     window.localStorage.setItem('x-auth-token', query.token);
+  //     // window.history.push('/');
+  //   }
+  // }
 
   render() {
+    console.log('cookie?', document.cookie);
     return (
       <div>
         <div>
