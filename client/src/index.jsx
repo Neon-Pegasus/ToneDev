@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {
   BrowserRouter, Route, Switch, Link,
 } from 'react-router-dom';
-// import queryString from 'query-string';
+import cookie from 'react-cookies';
 import Home from './components/Home';
 import Login from './components/Login';
 import Organizations from './components/Organizations';
@@ -12,28 +12,19 @@ import User from './components/user/User';
 
 class App extends React.Component {
   constructor(props) {
-    // adding comment
     super(props);
     this.state = {
-      // username: '',
+      // username: null,
     };
   }
 
-  /*   componentDidMount() {
-    if (document.cookie.username) {
-      const githubUsername = document.cookie.username;
-      this.setState({
-        username: githubUsername,
-      });
-    } else {
-      this.setState({
-        username: null,
-      });
-    }
-  } */
+  componentWillMount() {
+    this.state = {
+      username: cookie.load('username'),
+    };
+  }
 
   render() {
-    console.log('document cookie', document.cookie);
     return (
       <div>
         <div>
