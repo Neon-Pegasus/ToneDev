@@ -14,32 +14,34 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // username: null,
+      username: null,
     };
   }
 
   componentWillMount() {
-    this.state = {
+    this.setState({
       username: cookie.load('username'),
-    };
+    });
   }
 
   render() {
+    const { username } = this.state;
     return (
       <div>
         <div>
           <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/login">Logout</Link></li>
-            </ul>
+            {username ? (
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/login">Logout</Link></li>
+              </ul>
+            ) : (null)}
           </nav>
         </div>
         <div>
           <Switch>
-            {/* <Route exact path="/" component={Home} /> */}
-            <Route exact path="/" render={() => <Home />} />
-            <Route path="/login" component={Login} />
+            <Route exact path="/home" render={() => <Home />} />
+            <Route exact path="/" component={Login} />
             <Route path="/orgs" component={Organizations} />
             <Route path="/summary" component={SummaryView} />
             <Route path="/user" component={User} />
