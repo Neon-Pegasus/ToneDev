@@ -15,32 +15,42 @@ class App extends React.Component {
     super(props);
     this.state = {
       username: null,
+      isLoggedIn: false,
     };
+    this.changeMenu = this.changeMenu.bind(this);
   }
 
   componentWillMount() {
+    const { isLoggedIn } = this.state;
     this.setState({
       username: cookie.load('username'),
+      isLoggedIn: !isLoggedIn,
+    });
+  }
+
+  changeMenu() {
+    this.setState({
+      isLoggedIn: false,
     });
   }
 
   render() {
-    const { username } = this.state;
+    const { username, isLoggedIn } = this.state;
     return (
       <div>
         <div>
           <nav>
-            {username ? (
+            {isLoggedIn ? (
               <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/login">Logout</Link></li>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/" onClick={this.changeMenu} onKeyUp={this.changeMenu}>Logout</Link></li>
               </ul>
             ) : (null)}
           </nav>
         </div>
         <div>
           <Switch>
-            <Route exact path="/home" render={() => <Home />} />
+            <Route exact path="/home" render={() => <Home username={username} />} />
             <Route exact path="/" component={Login} />
             <Route path="/orgs" component={Organizations} />
             <Route path="/summary" component={SummaryView} />

@@ -3,11 +3,13 @@ import axios from 'axios';
 import {
   Link, Redirect,
 } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       loggedIn: true,
     };
@@ -32,20 +34,17 @@ class Home extends React.Component {
 
   render() {
     const { loggedIn } = this.state;
+    const { username } = this.props;
     if (!loggedIn) {
       return <Redirect to="/login" />;
     }
     return (
       <div>
-        {/* <div>
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/login">Logout</Link></li>
-            </ul>
-          </nav>
-        </div> */}
-        <h1>Welcome to ToneDev</h1>
+        <h1>
+          Welcome to ToneDev
+          {' '}
+          {`${username}!!!`}
+        </h1>
         <Link to="/orgs">View Top 5 Organizations</Link>
         <br />
         <Link to="/repos">View By Repo</Link>
@@ -56,5 +55,9 @@ class Home extends React.Component {
     );
   }
 }
+
+Home.propTypes = {
+  username: PropTypes.string.isRequired,
+};
 
 export default Home;
