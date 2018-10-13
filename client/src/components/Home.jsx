@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {
-  Link,
+  Link, Redirect,
 } from 'react-router-dom';
 
 
@@ -31,6 +31,10 @@ class Home extends React.Component {
   }
 
   render() {
+    const { loggedIn } = this.state;
+    if (!loggedIn) {
+      return <Redirect to="/login" />;
+    }
     return (
       <div>
         <div>
