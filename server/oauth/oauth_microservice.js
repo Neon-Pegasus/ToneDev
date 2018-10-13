@@ -11,7 +11,7 @@ router.get('/github/callback',
     const { username, token } = req.session.passport.user;
     res.cookie('username', username);
     res.cookie('token', token);
-    res.redirect('/');
+    res.redirect('/home');
   });
 
 module.exports = router;
