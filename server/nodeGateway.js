@@ -51,24 +51,14 @@ gateway.use('/api/gateway/org/sentiment', (req, res) => {
 });
 
 // Stack Overflow data pulling Microservice
-gateway.use('/api/user/so', (req, res) => {
-  logInChecker(req)
-    .then(() => {
-      axios({
-        method: req.method,
-        url: 'https://so-answer-search-tonedev.herokuapp.com/api/user/so',
-        headers: { 'Content-type': 'application/json' },
-        params: req.query,
-        body: req.body,
-      });
-    })
-  // axios({
-  //   method: req.method,
-  //   url: 'https://so-answer-search-tonedev.herokuapp.com/api/user/so',
-  //   headers: { 'Content-type': 'application/json' },
-  //   params: req.query,
-  //   body: req.body,
-  // })
+gateway.use('/api/user/so', logInChecker, (req, res) => {
+  axios({
+    method: req.method,
+    url: 'https://so-answer-search-tonedev.herokuapp.com/api/user/so',
+    headers: { 'Content-type': 'application/json' },
+    params: req.query,
+    body: req.body,
+  })
     .then((data) => {
       const { username, answers } = data.data;
       return axios.post('https://tonedev-user-ibm.herokuapp.com', {
@@ -81,6 +71,7 @@ gateway.use('/api/user/so', (req, res) => {
     })
     .catch((err) => {
       res.send(err.message);
+      // res.send(err.message);
     });
 });
 

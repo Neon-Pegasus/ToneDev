@@ -1,6 +1,15 @@
-exports.logInChecker = req => new Promise((resolve, reject) => {
+/* exports.logInChecker = req => new Promise((resolve, reject) => {
   if (!req.cookies.token) {
-    reject(new Error('Please Login again'));
+    const err = new Error('Please Login again');
+    err.shouldRedirect = true;
+    reject(err);
   }
   resolve();
-});
+}); */
+
+exports.logInChecker = (req, res, next) => {
+  if (!req.cookies.token) {
+    res.send('Please Login again');
+  }
+  next();
+};

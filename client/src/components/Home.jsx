@@ -8,22 +8,26 @@ import {
 class Home extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      loggedIn: true,
+    };
     this.testingCookies = this.testingCookies.bind(this);
   }
 
   testingCookies() {
+    const { loggedIn } = this.state;
     axios.get('/api/user/so')
       .then((res) => {
-        console.log('res.send', res)
-        console.log('what is res', res.data);
+        if (res.data === 'Please Login again') {
+          window.alert(res.data);
+        }
+        this.setState({
+          loggedIn: !loggedIn,
+        });
       })
       .catch((err) => {
-        if (err.message === 'Please Login again') {
-          window.alert('Please Login');
-        }
-        console.log(err);
-      })
+        console.log('line 22', err);
+      });
   }
 
   render() {
