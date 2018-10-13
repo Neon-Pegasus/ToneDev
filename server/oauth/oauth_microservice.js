@@ -8,8 +8,9 @@ router.get('/github', passport.authenticate('github'));
 router.get('/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   (req, res) => {
-    res.setHeader('username', req.user.username);
-    res.setHeader('x-auth-token', req.user.token);
+    const { username, token } = req.session.passport.user;
+    res.cookie('username', username);
+    res.cookie('token', token);
     res.redirect('/');
   });
 

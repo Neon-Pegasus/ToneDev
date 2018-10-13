@@ -6,6 +6,8 @@ const path = require('path');
 const cors = require('cors');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+const cookieParser = require('cookie-parser');
+const { logInChecker } = require('./oauth/authChecker');
 const authRouter = require('./oauth/oauth_microservice');
 
 const port = process.env.PORT || 8888;
@@ -19,12 +21,13 @@ gateway.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
+gateway.use(cookieParser());
 
 //  authentication
 require('./oauth/oauth_passport');
 
 gateway.use(cookieSession({
-  maxAge: 24 * 60 * 60 * 1000,
+  maxAge: 24 * 60 * 60 * 1000, // 24 hrs
   keys: [process.env.COOKIE_KEY],
 }));
 gateway.use(passport.initialize());
@@ -48,7 +51,7 @@ gateway.use('/api/gateway/org/sentiment', (req, res) => {
 });
 
 // Stack Overflow data pulling Microservice
-gateway.use('/api/user/so', (req, res) => {
+gateway.use('/api/user/so', logInChecker, (req, res) => {
   axios({
     method: req.method,
     url: 'https://so-answer-search-tonedev.herokuapp.com/api/user/so',

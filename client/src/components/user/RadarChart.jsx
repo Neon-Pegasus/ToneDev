@@ -3,11 +3,9 @@ import { Radar } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
 const RadarChart = (props) => {
-  // const { label, data } = props.data;
   const { data } = props;
   const { labels } = data;
   const datum = data.data;
-  console.log(datum);
   const radarData = {
     labels,
     datasets: [
