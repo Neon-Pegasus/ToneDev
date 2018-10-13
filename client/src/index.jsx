@@ -12,6 +12,7 @@ import User from './components/user/User';
 
 class App extends React.Component {
   constructor(props) {
+    // adding comment
     super(props);
     this.state = {
       // username: '',
