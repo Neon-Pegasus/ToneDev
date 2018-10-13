@@ -71,7 +71,6 @@ gateway.use('/api/user/so', logInChecker, (req, res) => {
     })
     .catch((err) => {
       res.send(err.message);
-      // res.send(err.message);
     });
 });
 

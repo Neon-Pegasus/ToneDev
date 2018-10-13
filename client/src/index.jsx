@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  BrowserRouter, Route, Switch,
+  BrowserRouter, Route, Switch, Link,
 } from 'react-router-dom';
 // import queryString from 'query-string';
 import Home from './components/Home';
@@ -14,28 +14,39 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      // username: '',
     };
   }
 
-  // componentWillMount() {
-  //   // const { location, history } = this.props;
-  //   const query = queryString.parse(window.location.search);
-  //   console.log(query);
-  //   console.log(query.token);
-  //   if (query.token) {
-  //     window.localStorage.setItem('x-auth-token', query.token);
-  //     // window.history.push('/');
-  //   }
-  // }
+  /*   componentDidMount() {
+    if (document.cookie.username) {
+      const githubUsername = document.cookie.username;
+      this.setState({
+        username: githubUsername,
+      });
+    } else {
+      this.setState({
+        username: null,
+      });
+    }
+  } */
 
   render() {
-    console.log('cookie?', document.cookie);
+    console.log('document cookie', document.cookie);
     return (
       <div>
         <div>
+          <nav>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/login">Logout</Link></li>
+            </ul>
+          </nav>
+        </div>
+        <div>
           <Switch>
-            <Route exact path="/" component={Home} />
+            {/* <Route exact path="/" component={Home} /> */}
+            <Route exact path="/" render={() => <Home />} />
             <Route path="/login" component={Login} />
             <Route path="/orgs" component={Organizations} />
             <Route path="/summary" component={SummaryView} />
