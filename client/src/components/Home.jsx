@@ -21,6 +21,7 @@ class Home extends React.Component {
     axios.get('/api/user/so')
       .then((res) => {
         if (res.data === 'Please Login again') {
+          // comment
           window.alert(res.data);
         }
         this.setState({
