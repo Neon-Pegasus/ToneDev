@@ -6,7 +6,7 @@ import Summary from './SummaryView';
 class Organizations extends React.Component {
   constructor(props) {
     super(props);
-    console.log('what is props', props.location.state);
+    // console.log('what is props', props.location.state);
     this.state = {
       orgs: [],
       showSummary: false,
@@ -35,10 +35,6 @@ class Organizations extends React.Component {
         console.log(error);
       });
   }
-
-  // getOrgData(org) {
-
-  // }
 
   renderView(name) {
     this.setState({
