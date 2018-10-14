@@ -4,8 +4,9 @@ import Summary from './SummaryView';
 
 
 class Organizations extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log('what is props', props.location.state);
     this.state = {
       orgs: [],
       showSummary: false,

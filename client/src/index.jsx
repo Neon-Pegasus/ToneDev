@@ -29,8 +29,9 @@ class App extends React.Component {
   }
 
   changeMenu() {
+    const { isLoggedIn } = this.state;
     this.setState({
-      isLoggedIn: false,
+      isLoggedIn: !isLoggedIn,
     });
   }
 

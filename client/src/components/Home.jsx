@@ -45,7 +45,15 @@ class Home extends React.Component {
           {' '}
           {`${username}!!!`}
         </h1>
-        <Link to="/orgs">View Top 5 Organizations</Link>
+        {/* <Link to="/orgs">View Top 5 Organizations</Link> */}
+        <Link to={{
+          pathname: '/orgs',
+          state: {
+            notify: true,
+          },
+        }}>
+          adsf
+        </Link>
         <br />
         <Link to="/repos">View By Repo</Link>
         <br />
