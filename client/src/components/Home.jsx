@@ -51,7 +51,8 @@ class Home extends React.Component {
           state: {
             notify: true,
           },
-        }}>
+        }}
+        >
           adsf
         </Link>
         <br />
