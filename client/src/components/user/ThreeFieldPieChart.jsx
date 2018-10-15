@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const ThreePieChart = (props) => {
   const { score } = props;
-  console.log(score);
   const { labels, data } = score;
   const graphData = {
     labels,
