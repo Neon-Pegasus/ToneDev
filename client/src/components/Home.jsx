@@ -42,9 +42,9 @@ class Home extends React.Component {
     return (
       <div>
         <h1>
-          Welcome to ToneDev
+          Welcome
           {' '}
-          {`${username}!!!`}
+          {`${username}`}
         </h1>
         <Link to="/orgs">View Top 5 Organizations</Link>
         {/* <Link to={{
