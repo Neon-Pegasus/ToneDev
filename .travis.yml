@@ -13,3 +13,6 @@ deploy:
     secure: process.env.HEROKU_AUTH
   app: tonedev
 
+cache:
+  directories:
+    - "node_modules"
