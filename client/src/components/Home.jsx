@@ -39,7 +39,7 @@ class Home extends React.Component {
     const { loggedIn } = this.state;
     const { username } = this.props;
     if (!loggedIn) {
-      return <Redirect to="/login" />;
+      return <Redirect to="/" />;
     }
     return (
       <div>
