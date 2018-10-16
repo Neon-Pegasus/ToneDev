@@ -46,21 +46,24 @@ class Home extends React.Component {
           {' '}
           {`${username}`}
         </h1>
-        <Link to="/orgs">View Top 5 Organizations</Link>
-        {/* <Link to={{
-          pathname: '/orgs',
-          state: {
-            notify: true,
-          },
-        }}
-        >
-          View Top 5 Organizations
-        </Link> */}
-        <br />
-        <Link to="/repos">View By Repo</Link>
-        <br />
-        <Link to="/user">User Stats</Link>
-        <button type="button" onClick={this.testingCookies}>testingCookies</button>
+        <div id="home-menu">
+          <Link to="/orgs">View Top 5 Organizations</Link>
+          {/* <Link to={{
+            pathname: '/orgs',
+            state: {
+              notify: true,
+            },
+          }}
+          >
+            View Top 5 Organizations
+          </Link> */}
+          <br />
+          <Link to="/repos">View By Repo</Link>
+          <br />
+          <Link to="/user">User Stats</Link>
+          <br />
+          <button type="button" onClick={this.testingCookies}>testingCookies</button>
+        </div>
       </div>
     );
   }

@@ -1,0 +1,69 @@
+$colors: (
+    primary: #005DFF,
+    accent: #FFF6BB,
+    link: #ff9f1c
+);
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    text-align: center;
+}
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+        margin: 1em;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.login-link {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: map-get($colors, link);
+}
+
+.login-button {
+    padding: 1em;
+    padding-left: 3em;
+    padding-right: 3em;
+    border-radius: 1em;
+    box-shadow: 0 10px 60px #f0edee;
+    background-color: map-get($colors, accent);
+}
+
+.fa-github {
+    font-size: 1.5em;
+}
+
+#logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5em;
+    margin-top: 2.7em;
+    color: map-get($colors, primary);
+}
+
+#home-menu {
+    a {
+        text-decoration: none;
+    }
+}
+

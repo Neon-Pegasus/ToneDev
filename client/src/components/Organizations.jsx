@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Summary from './SummaryView';
 
 
@@ -8,33 +8,33 @@ class Organizations extends React.Component {
     super(props);
     // console.log('what is props', props.location.state);
     this.state = {
-      orgs: [],
+      orgs: ['Google', 'Apple', 'Facebook', 'Microsoft', 'freecodecamp'],
       showSummary: false,
     };
     this.renderView = this.renderView.bind(this);
   }
 
   // TODO: make a GET request to github microservice through nodeGateway display the org names
-  componentDidMount() {
-    axios.get('/api/gateway/github/orglist')
-      .then((response) => {
-        console.log('ORGS GET: ', response.data);
-        const orglist = response.data;
-        const orgs = [];
-        orglist.map((org) => {
-          if (org.orgName !== null) {
-            orgs.push(org.orgName);
-          }
-          return orgs;
-        });
-        this.setState({
-          orgs,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // componentDidMount() {
+  //   axios.get('/api/gateway/github/orglist')
+  //     .then((response) => {
+  //       console.log('ORGS GET: ', response.data);
+  //       const orglist = response.data;
+  //       const orgs = [];
+  //       orglist.map((org) => {
+  //         if (org.orgName !== null) {
+  //           orgs.push(org.orgName);
+  //         }
+  //         return orgs;
+  //       });
+  //       this.setState({
+  //         orgs,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
   renderView(name) {
     this.setState({
