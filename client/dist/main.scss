@@ -1,7 +1,8 @@
 $colors: (
-    primary: #005DFF,
+    primary: #011627,
     accent: #FFF6BB,
-    link: #ff9f1c
+    button: #2ec4b6,
+    link: #fff
 );
 
 * {
@@ -47,11 +48,13 @@ nav {
     padding-right: 3em;
     border-radius: 1em;
     box-shadow: 0 10px 60px #f0edee;
-    background-color: map-get($colors, accent);
+    background-color: map-get($colors, button);
+    border-color: map-get($colors, button);
 }
 
 .fa-github {
     font-size: 1.5em;
+    color: white;
 }
 
 #logo {

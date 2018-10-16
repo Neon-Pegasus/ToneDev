@@ -22,7 +22,7 @@ nav a {
 .login-link {
   text-decoration: none;
   font-size: 1.5em;
-  color: #ff9f1c; }
+  color: #fff; }
 
 .login-button {
   padding: 1em;
@@ -30,16 +30,18 @@ nav a {
   padding-right: 3em;
   border-radius: 1em;
   box-shadow: 0 10px 60px #f0edee;
-  background-color: #FFF6BB; }
+  background-color: #2ec4b6;
+  border-color: #2ec4b6; }
 
 .fa-github {
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  color: white; }
 
 #logo {
   font-family: 'Montserrat', sans-serif;
   font-size: 5em;
   margin-top: 2.7em;
-  color: #005DFF; }
+  color: #011627; }
 
 #home-menu a {
   text-decoration: none; }
