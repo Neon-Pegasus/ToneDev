@@ -47,7 +47,13 @@ class Home extends React.Component {
           {`${username}`}
         </h1>
         <div id="home-menu">
-          <Link to="/orgs">View Top 5 Organizations</Link>
+          <div className="home-menu-item">
+            <Link to="/orgs">View Top Organizations</Link>
+            <p>
+             See how contributors from the top organizations on
+             Github are communicating on code reviews
+            </p>
+          </div>
           {/* <Link to={{
             pathname: '/orgs',
             state: {
@@ -57,11 +63,12 @@ class Home extends React.Component {
           >
             View Top 5 Organizations
           </Link> */}
-          <br />
-          <Link to="/repos">View By Repo</Link>
-          <br />
-          <Link to="/user">User Stats</Link>
-          <br />
+          <div className="home-menu-item">
+            <Link to="/user">User Stats</Link>
+            <p>
+              Get an analysis of your code reviews on Github and your commnets on Stackoverflow
+            </p>
+          </div>
           <button type="button" onClick={this.testingCookies}>testingCookies</button>
         </div>
       </div>
