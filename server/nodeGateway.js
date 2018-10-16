@@ -96,13 +96,13 @@ gateway.use('/api/gateway/github/orglist', (req, res) => {
 gateway.use('/api/gateway/github/orgdata', (req, res) => {
   axios({
     method: req.method,
-    url: 'https://tondev-micro-github.herokuapp.com',
+    url: 'https://tondev-micro-github.herokuapp.com/api/gateway/github/orgdata',
     headers: { 'Content-type': 'application/json' },
     params: req.params,
     body: req.body,
   })
     .then((data) => {
-      // console.log(data);
+      // send post request to IBM Orgs microservice
       res.send(data.data);
     })
     .catch((err) => {

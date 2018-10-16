@@ -42,25 +42,35 @@ class Home extends React.Component {
     return (
       <div>
         <h1>
-          Welcome to ToneDev
+          Welcome
           {' '}
-          {`${username}!!!`}
+          {`${username}`}
         </h1>
-        <Link to="/orgs">View Top 5 Organizations</Link>
-        {/* <Link to={{
-          pathname: '/orgs',
-          state: {
-            notify: true,
-          },
-        }}
-        >
-          View Top 5 Organizations
-        </Link> */}
-        <br />
-        <Link to="/repos">View By Repo</Link>
-        <br />
-        <Link to="/user">User Stats</Link>
-        <button type="button" onClick={this.testingCookies}>testingCookies</button>
+        <div id="home-menu">
+          <div className="home-menu-item">
+            <Link to="/orgs">View Top Organizations</Link>
+            <p>
+             See how contributors from the top organizations on
+             Github are communicating on code reviews
+            </p>
+          </div>
+          {/* <Link to={{
+            pathname: '/orgs',
+            state: {
+              notify: true,
+            },
+          }}
+          >
+            View Top 5 Organizations
+          </Link> */}
+          <div className="home-menu-item">
+            <Link to="/user">User Stats</Link>
+            <p>
+              Get an analysis of your code reviews on Github and your commnets on Stackoverflow
+            </p>
+          </div>
+          <button type="button" onClick={this.testingCookies}>testingCookies</button>
+        </div>
       </div>
     );
   }

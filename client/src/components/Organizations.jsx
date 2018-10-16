@@ -18,7 +18,7 @@ class Organizations extends React.Component {
   componentDidMount() {
     axios.get('/api/gateway/github/orglist')
       .then((response) => {
-        // console.log('ORGS GET: ', response.data);
+        console.log('ORGS GET: ', response.data);
         const orglist = response.data;
         const orgs = [];
         orglist.map((org) => {

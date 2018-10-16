@@ -10,6 +10,7 @@ import Organizations from './components/Organizations';
 import SummaryView from './components/SummaryView';
 import User from './components/user/User';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
