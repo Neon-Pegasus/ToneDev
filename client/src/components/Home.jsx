@@ -13,23 +13,25 @@ class Home extends React.Component {
     this.state = {
       loggedIn: true,
     };
-    this.testingCookies = this.testingCookies.bind(this);
   }
 
-  testingCookies() {
+  componentDidMount() {
     const { loggedIn } = this.state;
-    axios.get('/api/user/so')
+    axios.get('/api/loginChecker')
       .then((res) => {
         if (res.data === 'Please Login again') {
-          // comment
           window.alert(res.data);
+          this.setState({
+            loggedIn: !loggedIn,
+          });
         }
+      })
+      .catch((err) => {
+        window.alert('Please Login again');
+        console.log(err.message);
         this.setState({
           loggedIn: !loggedIn,
         });
-      })
-      .catch((err) => {
-        console.log('line 22', err);
       });
   }
 
@@ -54,22 +56,12 @@ class Home extends React.Component {
              Github are communicating on code reviews
             </p>
           </div>
-          {/* <Link to={{
-            pathname: '/orgs',
-            state: {
-              notify: true,
-            },
-          }}
-          >
-            View Top 5 Organizations
-          </Link> */}
           <div className="home-menu-item">
             <Link to="/user">User Stats</Link>
             <p>
               Get an analysis of your code reviews on Github and your commnets on Stackoverflow
             </p>
           </div>
-          <button type="button" onClick={this.testingCookies}>testingCookies</button>
         </div>
       </div>
     );

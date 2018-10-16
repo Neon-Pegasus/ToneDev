@@ -34,21 +34,6 @@ gateway.use(passport.initialize());
 gateway.use(passport.session());
 gateway.use('/auth', authRouter);
 
-//  IBM watson organization microservice
-gateway.use('/api/gateway/org/sentiment', (req, res) => {
-  axios({
-    method: req.method,
-    url: 'https://tonedev-micro-sentiment.herokuapp.com',
-    data: req.body,
-    headers: { 'Content-type': 'application/json' },
-  })
-    .then((data) => {
-      res.send(data.data);
-    })
-    .catch((err) => {
-      res.send(err.message);
-    });
-});
 
 // Stack Overflow data pulling Microservice
 gateway.use('/api/user/so', logInChecker, (req, res) => {
@@ -68,6 +53,22 @@ gateway.use('/api/user/so', logInChecker, (req, res) => {
     })
     .then((result) => {
       res.send(result.data);
+    })
+    .catch((err) => {
+      res.send(err.message);
+    });
+});
+
+//  IBM watson organization microservice
+gateway.use('/api/gateway/org/sentiment', (req, res) => {
+  axios({
+    method: req.method,
+    url: 'https://tonedev-micro-sentiment.herokuapp.com',
+    data: req.body,
+    headers: { 'Content-type': 'application/json' },
+  })
+    .then((data) => {
+      res.send(data.data);
     })
     .catch((err) => {
       res.send(err.message);
@@ -110,7 +111,30 @@ gateway.use('/api/gateway/github/orgdata', (req, res) => {
     });
 });
 
-// TODO: add more endpoints for user and repo, update current github enpoint for orgs
+// TODO: add more endpoints for user, update current github enpoint for orgs
+gateway.use('/api/gateway/github/user/:username', logInChecker, (req, res) => {
+  axios({
+    method: 'GET',
+    url: 'https://tondev-micro-github.herokuapp.com/api/gateway/github/user/repo/data',
+    headers: { 'Content-type': 'application/json' },
+    params: { username: '' },
+  })
+    .then((result) => {
+    // axios request to Joanne's MS
+      console.log(result);
+    })
+    .then((result) => {
+      res.send(result.data);
+    })
+    .catch((err) => {
+      res.send(err.message);
+    });
+});
+
+// LoginChecker
+gateway.get('/api/loginChecker', logInChecker, (req, res) => {
+  res.send('LoggedIn');
+});
 
 // catch all
 gateway.get('*', (req, res) => {

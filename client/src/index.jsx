@@ -23,10 +23,16 @@ class App extends React.Component {
 
   componentWillMount() {
     const { isLoggedIn } = this.state;
-    this.setState({
-      username: cookie.load('username'),
-      isLoggedIn: !isLoggedIn,
-    });
+    if (cookie.load('username')) {
+      this.setState({
+        username: cookie.load('username'),
+        isLoggedIn: !isLoggedIn,
+      });
+    } else {
+      this.setState({
+        username: null,
+      });
+    }
   }
 
   changeMenu() {
@@ -42,7 +48,7 @@ class App extends React.Component {
       <div>
         <div>
           <nav>
-            {isLoggedIn ? (
+            {(isLoggedIn && username) ? (
               <ul>
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/" onClick={this.changeMenu} onKeyUp={this.changeMenu}>Logout</Link></li>
@@ -53,7 +59,7 @@ class App extends React.Component {
         <div>
           <Switch>
             <Route exact path="/home" render={() => <Home username={username} />} />
-            <Route exact path="/" component={Login} />
+            <Route exact path="/" render={() => <Login />} />
             <Route path="/orgs" component={Organizations} />
             <Route path="/summary" component={SummaryView} />
             <Route path="/user" component={User} />
