@@ -27,6 +27,7 @@ class Home extends React.Component {
         }
       })
       .catch((err) => {
+        // comment
         window.alert('Please Login again');
         console.log(err.message);
         this.setState({
