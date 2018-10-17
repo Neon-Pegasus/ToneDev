@@ -7,14 +7,9 @@ body, html {
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
-<<<<<<< HEAD
-  text-align: center; 
-}
-=======
   text-align: center;
   background-color: #e2e1e0; }
 
->>>>>>> add more styles to app and refactoring the nodeGateway IBM endpoint
 nav ul {
   margin: 0;
   padding: 0;
