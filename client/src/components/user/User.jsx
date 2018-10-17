@@ -50,7 +50,7 @@ class User extends React.Component {
   render() {
     const { viewCharts, pieData, radarData } = this.state;
     return (
-      <div>
+      <div className="main-user-display">
         <form>
           <label htmlFor="SOuserName">
           StackOverflow Username:
