@@ -103,11 +103,19 @@ gateway.use('/api/gateway/github/orgdata', (req, res) => {
     body: req.body,
   })
     .then((data) => {
-      // send post request to IBM Orgs microservice
-      res.send(data.data);
-    })
-    .catch((err) => {
-      res.send(err.message);
+      // console.log('DATA: ', data.data);
+      const { orgCommentsBody } = data.data;
+      axios.post('http://localhost:4000', {
+        text: orgCommentsBody,
+      })
+        .then((result) => {
+          console.log(result.data);
+          // res.send(result.data);
+        })
+        .catch((err) => {
+          console.log(err.message);
+          // res.send(err.message);
+        });
     });
 });
 
