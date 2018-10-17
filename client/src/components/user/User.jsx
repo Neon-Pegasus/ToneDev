@@ -60,13 +60,17 @@ class User extends React.Component {
         </form>
         {viewCharts ? (
           <div className="stackviews">
-            <RadarChart data={radarData} />
-            <ThreePieChart score={pieData} />
+            <div className="radar-so">
+              <RadarChart data={radarData} />
+            </div>
+            <div className="pie-so">
+              <ThreePieChart score={pieData} />
+            </div>
           </div>
         )
           : null}
         <div>
-          <GithubUserSummary score={pieData} />
+          <GithubUserSummary score={pieData} data={radarData} />
         </div>
       </div>
     );
