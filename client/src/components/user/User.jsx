@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import RadarChart from './RadarChart';
 import ThreePieChart from './ThreeFieldPieChart';
-import GithubUserSummary from './GithubUserSummary';
+// import GithubUserSummary from './GithubUserSummary';
 
 class User extends React.Component {
   constructor() {
@@ -69,9 +69,6 @@ class User extends React.Component {
           </div>
         )
           : null}
-        <div>
-          <GithubUserSummary score={pieData} data={radarData} />
-        </div>
       </div>
     );
   }
