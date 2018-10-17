@@ -2,15 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 // import { response } from 'spdy';
-// import PieChart from './PieChart';
+import PieChart from './PieChart';
 
 
 class Summary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      score: 0,
-      sentiment: 'neutral',
+      score: 73,
+      sentiment: 'positive',
+      desciption: '',
     };
     this.getAnalysis = this.getAnalysis.bind(this);
   }
@@ -24,12 +25,15 @@ class Summary extends React.Component {
     axios.get('/api/gateway/github/orgdata', {
       orgName,
     })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          description: response.data.orgDescription,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -37,7 +41,19 @@ class Summary extends React.Component {
     const { sentiment, score } = this.state;
     return (
       <div>
-        <h1>Sentiment Analysis Summary</h1>
+        <h1>
+          {orgName}
+          {' '}
+        Summary
+        </h1>
+        <p>
+        The
+          {' '}
+          <a href="https://freeCodeCamp.org">freeCodeCamp</a>
+          {' '}
+        open source codebase and curriculum.
+        Learn to code for free together with millions of people.
+        </p>
         <h2>
 Overall Sentiment
           {' '}
@@ -50,7 +66,7 @@ Overall Sentiment
           {score}
         </p>
 
-        {/* <PieChart score={Math.round(score * 100)} sentiment={sentiment} /> */}
+        <PieChart score={73} sentiment="positive" />
 
       </div>
     );
