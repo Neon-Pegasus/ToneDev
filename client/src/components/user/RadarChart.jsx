@@ -11,8 +11,11 @@ const RadarChart = (props) => {
     datasets: [
       {
         data: datum,
-        label: 'my first dataset',
-        backgroundColor: 'rgba(179,181,198,0.2)',
+        label: 'My Stack Overflow Comments',
+        backgroundColor: 'rgba(46,196,182,0.5)',
+        borderColor: 'rgba(200,0,0,0.2)',
+        pointRadius: 4,
+        pointHoverRadius: 5,
       },
     ],
   };
@@ -22,7 +25,19 @@ const RadarChart = (props) => {
       display: true,
       text: 'StackOverflow Analysis Overview',
       fontFamily: 'Roboto',
-      fontSize: 20,
+      fontSize: 25,
+    },
+    scale: {
+      pointLabels: {
+        fontSize: 18,
+        fontFamily: 'Roboto',
+        fontColor: '#0116271',
+      },
+    },
+    legend: {
+      labels: {
+        fontSize: 18,
+      },
     },
   };
 

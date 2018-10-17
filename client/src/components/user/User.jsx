@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import Summary from '../SummaryView';
 import RadarChart from './RadarChart';
 import ThreePieChart from './ThreeFieldPieChart';
+import GithubUserSummary from './GithubUserSummary';
 
 class User extends React.Component {
   constructor() {
@@ -11,9 +11,14 @@ class User extends React.Component {
       SOUsername: '',
       pieData: {},
       radarData: {},
+      viewCharts: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitSOname = this.submitSOname.bind(this);
+  }
+
+  componentDidMount() {
+    // function with axios call for endpoint 
   }
 
   handleChange(e) {
@@ -34,6 +39,7 @@ class User extends React.Component {
         this.setState({
           radarData: Object.assign({}, responseData[1].emotion),
           pieData: Object.assign({}, responseData[0].sentiment),
+          viewCharts: true,
         });
       })
       .catch((err) => {
@@ -42,7 +48,7 @@ class User extends React.Component {
   }
 
   render() {
-    const { pieData, radarData } = this.state;
+    const { viewCharts, pieData, radarData } = this.state;
     return (
       <div>
         <form>
@@ -52,10 +58,16 @@ class User extends React.Component {
           </label>
           <input type="button" value="Submit" onClick={this.submitSOname} />
         </form>
-        <RadarChart data={radarData} />
-        <ThreePieChart score={pieData} />
-        <Summary />
-
+        {viewCharts ? (
+          <div className="stackviews">
+            <RadarChart data={radarData} />
+            <ThreePieChart score={pieData} />
+          </div>
+        )
+          : null}
+        <div>
+          <GithubUserSummary score={pieData} />
+        </div>
       </div>
     );
   }

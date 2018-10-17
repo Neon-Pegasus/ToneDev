@@ -11,9 +11,9 @@ const ThreePieChart = (props) => {
       {
         data,
         backgroundColor: [
-          '#36A2EB',
-          '#FF6384',
-          '#808080',
+          '#ff9f1c',
+          '#2ec4b6',
+          '#e71d36',
         ],
       },
     ],
