@@ -35,6 +35,7 @@ class User extends React.Component {
       },
     })
       .then((res) => {
+        console.log('line 33', res.data);
         const responseData = res.data;
         this.setState({
           radarData: Object.assign({}, responseData[1].emotion),
