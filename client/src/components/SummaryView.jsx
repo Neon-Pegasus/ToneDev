@@ -11,7 +11,6 @@ class Summary extends React.Component {
     this.state = {
       score: 73,
       sentiment: 'positive',
-      desciption: '',
     };
     this.getAnalysis = this.getAnalysis.bind(this);
   }
@@ -28,7 +27,7 @@ class Summary extends React.Component {
       .then((response) => {
         console.log(response);
         this.setState({
-          description: response.data.orgDescription,
+          score: 68,
         });
       })
       .catch((err) => {
@@ -41,32 +40,37 @@ class Summary extends React.Component {
     const { sentiment, score } = this.state;
     return (
       <div>
-        <h1>
-          {orgName}
-          {' '}
-        Summary
-        </h1>
-        <p>
-        The
-          {' '}
-          <a href="https://freeCodeCamp.org">freeCodeCamp</a>
-          {' '}
-        open source codebase and curriculum.
-        Learn to code for free together with millions of people.
-        </p>
-        <h2>
-Overall Sentiment
-          {' '}
-          {orgName}
-        </h2>
-        <p>{sentiment}</p>
+        <div className="summary-container">
+          <div className="summary-item-info">
+            <h1>
+              {orgName}
+              {' '}
+            Summary
+            </h1>
+            <p>
+            The
+              {' '}
+              <a href="https://freeCodeCamp.org">freeCodeCamp</a>
+              {' '}
+            open source codebase and curriculum.
+            Learn to code for free together with millions of people.
+            </p>
+            <h2>
+    Overall Sentiment
+              {' '}
+              {orgName}
+            </h2>
+            <p>{sentiment}</p>
 
-        <h2>Score</h2>
-        <p>
-          {score}
-        </p>
-
-        <PieChart score={73} sentiment="positive" />
+            <h2>Score</h2>
+            <p>
+              {score}
+            </p>
+          </div>
+          <div className="summary-item-data">
+            <PieChart score={73} sentiment="positive" />
+          </div>
+        </div>
 
       </div>
     );

@@ -14,9 +14,10 @@ body, html {
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     text-align: center;
+    background-color: #e2e1e0;
 }
 
 nav {
@@ -47,7 +48,8 @@ nav {
     padding-left: 3em;
     padding-right: 3em;
     border-radius: 1em;
-    box-shadow: 0 10px 60px #f0edee;
+    // box-shadow: 0 10px 60px #f0edee;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     background-color: map-get($colors, button);
     border-color: map-get($colors, button);
 }
@@ -67,5 +69,53 @@ nav {
 #home-menu {
     a {
         text-decoration: none;
+        color: #2ec4b6;
     }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 3em;
+}
+
+#welcome-title {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.home-menu-item {
+    width: 900px;
+    background-color: #fff;
+    border-radius: .5em;
+    padding: 2em;
+    // box-shadow: 0 10px 60px #cacaca;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-size: 2em;
+    margin: 1em;
+}
+
+.org-button {
+    padding: 4em;
+    width: 15em;
+    margin: .5em;
+    border-radius: .5em;
+    background-color: #2ec4b6;
+    border: #2ec4b6;
+    color: #fff;
+    font-size: 1em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#org-container {
+    padding-top: 8em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.summary-container {
+    display: flex;
+    flex-direction: row;
 }

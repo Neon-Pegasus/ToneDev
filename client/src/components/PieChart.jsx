@@ -13,7 +13,7 @@ const PieChart = (props) => {
         data: [score, remainder],
         backgroundColor: [
           '#2ec4b6',
-          '#e71d36',
+          '#ff9f1c',
         ],
       },
     ],
@@ -23,7 +23,7 @@ const PieChart = (props) => {
     title: {
       display: true,
       text: 'Sentinment Analysis Overview',
-      fontFamily: 'Raleway',
+      fontFamily: 'Montserrat',
       fontSize: 20,
     },
   };
