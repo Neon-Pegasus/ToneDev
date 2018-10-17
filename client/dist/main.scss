@@ -34,6 +34,11 @@ nav {
 
     a {
         text-decoration: none;
+        color: #011627;
+    }
+
+    a:hover {
+        color: #2ec4b6;
     }
 }
 
@@ -66,6 +71,11 @@ nav {
     color: map-get($colors, primary);
 }
 
+.title-logo {
+    font-size: 3em;
+    color: #ff9f1c;
+}
+
 #home-menu {
     a {
         text-decoration: none;
@@ -80,6 +90,7 @@ nav {
 
 #welcome-title {
     font-family: 'Montserrat', sans-serif;
+    color: #2ec4b6;
 }
 
 .home-menu-item {
@@ -89,7 +100,7 @@ nav {
     padding: 2em;
     // box-shadow: 0 10px 60px #cacaca;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    font-size: 2em;
+    font-size: 1.5em;
     margin: 1em;
 }
 
@@ -116,6 +127,33 @@ nav {
 }
 
 .summary-container {
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: space-evenly;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.summary-item-info {
     display: flex;
     flex-direction: row;
+    background-color: #fff;
+    border-radius: .5em;
+    padding: 2em;
+    // box-shadow: 0 10px 60px #cacaca;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-size: 1em;
+    margin: 1em;
+}
+
+.summary-item-info {
+    h2 {
+        color: map-get($colors, button);
+    }
+    a {
+        text-decoration: none;
+        color: #ff9f1c;
+    }
+
 }

@@ -18,7 +18,10 @@ nav li {
   display: inline-block;
   margin: 1em; }
 nav a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #011627; }
+nav a:hover {
+  color: #2ec4b6; }
 
 .login-link {
   text-decoration: none;
@@ -44,6 +47,10 @@ nav a {
   margin-top: 2.7em;
   color: #011627; }
 
+.title-logo {
+  font-size: 3em;
+  color: #ff9f1c; }
+
 #home-menu {
   display: flex;
   flex-direction: row;
@@ -55,7 +62,8 @@ nav a {
     color: #2ec4b6; }
 
 #welcome-title {
-  font-family: 'Montserrat', sans-serif; }
+  font-family: 'Montserrat', sans-serif;
+  color: #2ec4b6; }
 
 .home-menu-item {
   width: 900px;
@@ -63,7 +71,7 @@ nav a {
   border-radius: .5em;
   padding: 2em;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 1em; }
 
 .org-button {
@@ -87,7 +95,23 @@ nav a {
   margin: 0 auto; }
 
 .summary-container {
+  width: 75%;
+  margin: 0 auto; }
+
+.summary-item-info {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: .5em;
+  padding: 2em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-size: 1em;
+  margin: 1em; }
+
+.summary-item-info h2 {
+  color: #2ec4b6; }
+.summary-item-info a {
+  text-decoration: none;
+  color: #ff9f1c; }
 
 /*# sourceMappingURL=styles.css.map */

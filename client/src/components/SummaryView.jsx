@@ -44,30 +44,36 @@ class Summary extends React.Component {
       <div>
         <div className="summary-container">
           <div className="summary-item-info">
-            <h1>
-              {orgName}
-              {' '}
-            Summary
-            </h1>
-            <p>
-            The
-              {' '}
-              <a href="https://freeCodeCamp.org">freeCodeCamp</a>
-              {' '}
-            open source codebase and curriculum.
-            Learn to code for free together with millions of people.
-            </p>
-            <h2>
-    Overall Sentiment
-              {' '}
-              {orgName}
-            </h2>
-            <p>{sentiment}</p>
+            <div className="summary-overview">
+              <h2>
+                {orgName}
+                {' '}
+              Summary
+              </h2>
+              <p>
+              The
+                {' '}
+                <a href="https://freeCodeCamp.org">freeCodeCamp</a>
+                {' '}
+              open source codebase and curriculum.
+              Learn to code for free together with millions of people.
+              </p>
+            </div>
+            <div className="summary-sentiment">
+              <h2>
+      Overall Sentiment
+                {' '}
+                {orgName}
+              </h2>
+              <p>{sentiment}</p>
 
-            <h2>Score</h2>
-            <p>
-              {Math.round(score * 100)}
-            </p>
+            </div>
+            <div className="summary-score">
+              <h2>Score</h2>
+              <p>
+                {Math.round(score * 100)}
+              </p>
+            </div>
           </div>
           <div className="summary-item-data">
             <PieChart score={Math.round(score * 100)} sentiment={sentiment} />

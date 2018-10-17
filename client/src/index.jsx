@@ -47,14 +47,17 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <nav>
-            {(isLoggedIn && username) ? (
-              <ul>
-                <li><Link to="/home">Home</Link></li>
-                <li><Link to="/" onClick={this.changeMenu} onKeyUp={this.changeMenu}>Logout</Link></li>
-              </ul>
-            ) : (null)}
-          </nav>
+          {(isLoggedIn && username) ? (
+            <div>
+              <h1 className="title-logo">ToneDev</h1>
+              <nav>
+                <ul>
+                  <li><Link to="/home">Home</Link></li>
+                  <li><Link to="/" onClick={this.changeMenu} onKeyUp={this.changeMenu}>Logout</Link></li>
+                </ul>
+              </nav>
+            </div>
+          ) : (null)}
         </div>
         <div>
           <Switch>
