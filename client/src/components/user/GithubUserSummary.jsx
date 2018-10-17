@@ -13,7 +13,7 @@ class GithubUserSummary extends React.Component {
   render() {
     const { score, data } = this.props;
     return (
-      <div>
+      <div className="gitviews">
         <div>
           <ThreePieChart score={score} />
         </div>

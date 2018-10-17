@@ -46,7 +46,7 @@ gateway.use('/api/user/so', logInChecker, (req, res) => {
   })
     .then((data) => {
       const { username, answers } = data.data;
-      return axios.post('https://tonedev-user-ibm.herokuapp.com', {
+      return axios.post('https://tonedev-user-ibm.herokuapp.com/api/soAnalysis', {
         username,
         SOAnswers: answers,
       });

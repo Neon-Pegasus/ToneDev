@@ -28,7 +28,7 @@ const ThreePieChart = (props) => {
   };
 
   return (
-    <Pie data={graphData} options={options} />
+    <Pie data={graphData} options={options} width="400" height="300" />
   );
 };
 
