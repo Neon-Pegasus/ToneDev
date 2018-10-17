@@ -20,7 +20,7 @@ class Organizations extends React.Component {
       .then((response) => {
         console.log('ORGS GET: ', response.data);
         const orglist = response.data;
-        const orgs = ['Google'];
+        const orgs = ['Google', 'freeCodeCamp', 'Microsoft', 'Facebook'];
         orglist.map((org) => {
           if (org.orgName !== null) {
             orgs.push(org.orgName);

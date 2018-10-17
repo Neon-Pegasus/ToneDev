@@ -106,7 +106,7 @@ gateway.use('/api/gateway/github/orgdata', (req, res) => {
       // res.send(data.data);
       console.log('DATA: ', data.data);
       // const { orgCommentsBody } = data.data;
-      axios.post('http://localhost:4000', {
+      axios.post('http://tonedev-micro-sentiment.herokuapp.com/', {
         text: ['I am so sad!', 'i am so glad you are here!', 'that is great news!'],
       })
         .then((result) => {
