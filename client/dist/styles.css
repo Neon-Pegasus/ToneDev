@@ -114,4 +114,19 @@ nav a:hover {
   text-decoration: none;
   color: #ff9f1c; }
 
+/* #home-menu a {
+  text-decoration: none; 
+} */
+
+.stackviews {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 25px;
+}
+
+.gitviews {
+  display: flex;
+  justify-content: center; 
+} 
+
 /*# sourceMappingURL=styles.css.map */

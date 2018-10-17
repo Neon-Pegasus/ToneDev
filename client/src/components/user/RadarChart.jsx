@@ -43,7 +43,7 @@ const RadarChart = (props) => {
 
   return (
     <div>
-      <Radar data={radarData} options={options} />
+      <Radar data={radarData} options={options} width="400" height="300" />
     </div>
   );
 };
