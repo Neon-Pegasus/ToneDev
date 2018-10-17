@@ -103,20 +103,20 @@ gateway.use('/api/gateway/github/orgdata', (req, res) => {
     body: req.body,
   })
     .then((data) => {
-      res.send(data.data);
-      // console.log('DATA: ', data.data);
+      // res.send(data.data);
+      console.log('DATA: ', data.data);
       // const { orgCommentsBody } = data.data;
-      // axios.post('http://localhost:4000', {
-      //   text: orgCommentsBody,
-      // })
-      //   .then((result) => {
-      //     console.log('FROM IBM WATSON: ', result.data);
-      //     res.send(result.data);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err.message);
-      //     // res.send(err.message);
-      //   });
+      axios.post('http://localhost:4000', {
+        text: ['I am so sad!', 'i am so glad you are here!', 'that is great news!'],
+      })
+        .then((result) => {
+          console.log('FROM IBM WATSON: ', result.data);
+          res.send(result.data);
+        })
+        .catch((err) => {
+          console.log(err.message);
+          // res.send(err.message);
+        });
     });
 });
 

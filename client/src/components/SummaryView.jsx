@@ -9,8 +9,8 @@ class Summary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      score: 73,
-      sentiment: 'positive',
+      score: 0,
+      sentiment: 'processing...',
     };
     this.getAnalysis = this.getAnalysis.bind(this);
   }
@@ -26,8 +26,10 @@ class Summary extends React.Component {
     })
       .then((response) => {
         console.log(response);
+        const { score, sentiment } = response.data;
         this.setState({
-          score: 68,
+          score,
+          sentiment,
         });
       })
       .catch((err) => {
@@ -64,11 +66,11 @@ class Summary extends React.Component {
 
             <h2>Score</h2>
             <p>
-              {score}
+              {Math.round(score * 100)}
             </p>
           </div>
           <div className="summary-item-data">
-            <PieChart score={73} sentiment="positive" />
+            <PieChart score={Math.round(score * 100)} sentiment={sentiment} />
           </div>
         </div>
 
