@@ -103,11 +103,20 @@ gateway.use('/api/gateway/github/orgdata', (req, res) => {
     body: req.body,
   })
     .then((data) => {
-      // send post request to IBM Orgs microservice
-      res.send(data.data);
-    })
-    .catch((err) => {
-      res.send(err.message);
+      // res.send(data.data);
+      console.log('DATA: ', data.data);
+      // const { orgCommentsBody } = data.data;
+      axios.post('http://tonedev-micro-sentiment.herokuapp.com/', {
+        text: ['I am so sad!', 'i am so glad you are here!', 'that is great news!'],
+      })
+        .then((result) => {
+          console.log('FROM IBM WATSON: ', result.data);
+          res.send(result.data);
+        })
+        .catch((err) => {
+          console.log(err.message);
+          // res.send(err.message);
+        });
     });
 });
 

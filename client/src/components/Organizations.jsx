@@ -20,7 +20,7 @@ class Organizations extends React.Component {
       .then((response) => {
         console.log('ORGS GET: ', response.data);
         const orglist = response.data;
-        const orgs = [];
+        const orgs = ['Google', 'freeCodeCamp', 'Microsoft', 'Facebook'];
         orglist.map((org) => {
           if (org.orgName !== null) {
             orgs.push(org.orgName);
@@ -56,13 +56,12 @@ class Organizations extends React.Component {
       );
     }
     return (
-      <div>
+      <div id="org-container">
         {orgs.map(org => (
           <div key={org}>
-            <button type="submit" key={org} onClick={() => this.renderView({ org })}>
+            <button type="submit" className="org-button" key={org} onClick={() => this.renderView({ org })}>
               {org}
             </button>
-            <br />
           </div>
         ))}
       </div>
