@@ -18,7 +18,7 @@ class User extends React.Component {
   }
 
   componentDidMount() {
-    // function with axios call for endpoint 
+    // function with axios call for endpoint
   }
 
   handleChange(e) {
