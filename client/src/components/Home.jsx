@@ -58,9 +58,9 @@ class Home extends React.Component {
             </p>
           </div>
           <div className="home-menu-item">
-            <Link to="/user">User Stats</Link>
+            <Link to="/stackOverflow">StackOverflow Analysis</Link>
             <p>
-              Get an analysis of your code reviews on Github and your commnets on Stackoverflow
+              Get an analysis of your answers on Stackoverflow
             </p>
           </div>
         </div>

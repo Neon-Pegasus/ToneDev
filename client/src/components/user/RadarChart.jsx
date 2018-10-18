@@ -3,7 +3,7 @@ import { Radar } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
 const RadarChart = (props) => {
-  const { data } = props;
+  const { data, labelTag } = props;
   const { labels } = data;
   const datum = data.data;
   const radarData = {
@@ -11,7 +11,7 @@ const RadarChart = (props) => {
     datasets: [
       {
         data: datum,
-        label: 'My Stack Overflow Comments',
+        label: labelTag,
         backgroundColor: 'rgba(46,196,182,0.5)',
         borderColor: 'rgba(200,0,0,0.2)',
         pointRadius: 4,
@@ -21,12 +21,12 @@ const RadarChart = (props) => {
   };
 
   const options = {
-    title: {
-      display: true,
-      text: 'StackOverflow Analysis Overview',
-      fontFamily: 'Roboto',
-      fontSize: 25,
-    },
+    // title: {
+    //   display: true,
+    //   text: title,
+    //   fontFamily: 'Roboto',
+    //   fontSize: 25,
+    // },
     scale: {
       pointLabels: {
         fontSize: 18,
@@ -36,7 +36,7 @@ const RadarChart = (props) => {
     },
     legend: {
       labels: {
-        fontSize: 18,
+        fontSize: 15,
       },
     },
   };
@@ -49,7 +49,9 @@ const RadarChart = (props) => {
 };
 
 RadarChart.propTypes = {
-  data: PropTypes.shape.isRequired,
+  data: PropTypes.objectOf(PropTypes.node).isRequired,
+  // title: PropTypes.string.isRequired,
+  labelTag: PropTypes.string.isRequired,
 };
 
 export default RadarChart;

@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import RadarChart from './RadarChart';
 import ThreePieChart from './ThreeFieldPieChart';
-// import GithubUserSummary from './GithubUserSummary';
 
 class User extends React.Component {
   constructor() {
@@ -35,6 +34,7 @@ class User extends React.Component {
       },
     })
       .then((res) => {
+        console.log('line 33', res.data);
         const responseData = res.data;
         this.setState({
           radarData: Object.assign({}, responseData[1].emotion),
@@ -51,20 +51,29 @@ class User extends React.Component {
     const { viewCharts, pieData, radarData } = this.state;
     return (
       <div className="main-user-display">
+        {viewCharts ? (null) : (
+          <h3>
+            To analyze your stackoverflow answers, type in the username below.
+          </h3>
+        )}
         <form>
           <label htmlFor="SOuserName">
           StackOverflow Username:
+            {' '}
             <input type="text" name="SOUsername" onChange={this.handleChange} />
           </label>
           <input type="button" value="Submit" onClick={this.submitSOname} />
         </form>
         {viewCharts ? (
-          <div className="stackviews">
-            <div className="radar-so">
-              <RadarChart data={radarData} />
-            </div>
-            <div className="pie-so">
-              <ThreePieChart score={pieData} />
+          <div>
+            <h1>StackOverflow Sentiment Analysis</h1>
+            <div className="stackviews">
+              <div className="radar-so">
+                <RadarChart data={radarData} labelTag="Answers" />
+              </div>
+              <div className="pie-so">
+                <ThreePieChart score={pieData} />
+              </div>
             </div>
           </div>
         )

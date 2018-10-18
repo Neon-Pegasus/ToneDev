@@ -28,12 +28,14 @@ const ThreePieChart = (props) => {
   };
 
   return (
-    <Pie data={graphData} options={options} width="400" height="300" />
+    <div>
+      <Pie data={graphData} options={options} width="400" height="300" />
+    </div>
   );
 };
 
 ThreePieChart.propTypes = {
-  score: PropTypes.shape.isRequired,
+  score: PropTypes.objectOf(PropTypes.node).isRequired,
 };
 
 export default ThreePieChart;
