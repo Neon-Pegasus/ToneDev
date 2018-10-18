@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import LoadingSpinner from '../LoadingSpinner';
 import RadarChart from './RadarChart';
 import ThreePieChart from './ThreeFieldPieChart';
 
@@ -11,13 +12,10 @@ class User extends React.Component {
       pieData: {},
       radarData: {},
       viewCharts: false,
+      load: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitSOname = this.submitSOname.bind(this);
-  }
-
-  componentDidMount() {
-    // function with axios call for endpoint
   }
 
   handleChange(e) {
@@ -28,6 +26,10 @@ class User extends React.Component {
 
   submitSOname() {
     const { SOUsername } = this.state;
+    this.setState({
+      viewCharts: false,
+      load: true,
+    });
     axios.get('/api/user/so', {
       params: {
         username: SOUsername,
@@ -39,6 +41,7 @@ class User extends React.Component {
         this.setState({
           radarData: Object.assign({}, responseData[1].emotion),
           pieData: Object.assign({}, responseData[0].sentiment),
+          load: false,
           viewCharts: true,
         });
       })
@@ -48,7 +51,9 @@ class User extends React.Component {
   }
 
   render() {
-    const { viewCharts, pieData, radarData } = this.state;
+    const {
+      viewCharts, pieData, radarData, load,
+    } = this.state;
     return (
       <div className="main-user-display">
         {viewCharts ? (null) : (
@@ -64,6 +69,12 @@ class User extends React.Component {
           </label>
           <input type="button" className="so-submit" value="Submit" onClick={this.submitSOname} />
         </form>
+        {/* {load ? (
+          <div>
+            <LoadingSpinner />
+          </div>
+        )
+          : null} */}
         {viewCharts ? (
           <div>
             <h1>StackOverflow Sentiment Analysis</h1>
@@ -77,7 +88,12 @@ class User extends React.Component {
             </div>
           </div>
         )
-          : null}
+          : load ? (
+            <div>
+              <LoadingSpinner />
+            </div>
+          )
+            : null}
       </div>
     );
   }
