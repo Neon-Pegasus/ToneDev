@@ -9,7 +9,7 @@ class Input extends React.Component {
       input: '',
       score: null,
       sentiment: '',
-      // keywords: [],
+      keywords: [],
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -33,10 +33,11 @@ class Input extends React.Component {
       .then((result) => {
         console.log('INPUT RESULTS: ', result.data);
         const { score, label } = result.data.sentiment.document;
-        // const { keywords } = result.data;
+        const { keywords } = result.data;
         this.setState({
           score,
           sentiment: label,
+          keywords,
         });
       })
       .catch((error) => {
@@ -45,9 +46,9 @@ class Input extends React.Component {
   }
 
   showResults() {
-    const { score, sentiment } = this.state;
+    const { score, sentiment, keywords } = this.state;
     if (score) {
-      return <Output score={score} sentiment={sentiment} />;
+      return <Output score={score} sentiment={sentiment} keywords={keywords} />;
     }
     return null;
   }

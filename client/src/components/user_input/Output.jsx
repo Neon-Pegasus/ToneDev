@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Output = (props) => {
   console.log(props);
-  const { score, sentiment } = props;
+  const { score, sentiment, keywords } = props;
   return (
     <div>
       <h1>Analysis Results</h1>
@@ -17,6 +17,24 @@ const Output = (props) => {
         {' '}
         {sentiment}
       </p>
+      <div>
+        {keywords.map((keyword) => {
+          console.log(keyword);
+          return (
+            <div key={keyword}>
+              <p>
+                Keyword:
+                {' '}
+                {keyword.text}
+                {'  '}
+                Relevance:
+                {' '}
+                {keyword.relevance}
+              </p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
@@ -24,6 +42,7 @@ const Output = (props) => {
 Output.propTypes = {
   sentiment: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
+  keywords: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default Output;
