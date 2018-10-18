@@ -4,6 +4,7 @@ import {
   Link, Redirect,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import TextAnalysis from './user_input/TextAnalysis';
 
 
 class Home extends React.Component {
@@ -50,6 +51,7 @@ class Home extends React.Component {
           {`${username}`}
         </h1>
         <div id="home-menu">
+          <TextAnalysis />
           <div className="home-menu-item">
             <Link to="/orgs">View Top Organizations</Link>
             <p>
