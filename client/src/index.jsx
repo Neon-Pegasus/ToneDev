@@ -9,11 +9,8 @@ import Login from './components/Login';
 import Organizations from './components/Organizations';
 import SummaryView from './components/SummaryView';
 import User from './components/user/User';
-<<<<<<< c06484d5cd16e979c4f5ab780ce38df68d50e329
 import TextAnalysis from './components/user_input/TextAnalysis';
-=======
 import GithubUserSummary from './components/user/GithubUserSummary';
->>>>>>> add github user summary as a separate component
 
 
 class App extends React.Component {
@@ -54,11 +51,26 @@ class App extends React.Component {
         <div>
           {(isLoggedIn && username) ? (
             <div>
-              {/* <h1 className="title-logo">ToneDev</h1> */}
               <nav>
                 <ul>
                   <li><h1 className="title-logo">ToneDev</h1></li>
                   <li><Link to="/home">Home</Link></li>
+                  <li>
+                    <Link to="/orgs">
+                      Top
+                      <br />
+                      Organizations
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/stackOverflow">
+                      StackOverflow
+                      <br />
+                      Analysis
+                    </Link>
+                  </li>
+                  <li><Link to="/github/summary">Your GitHub Summary</Link></li>
+                  <li><Link to="input-analysis">Live Analysis</Link></li>
                   <li><Link to="/" onClick={this.changeMenu} onKeyUp={this.changeMenu}>Logout</Link></li>
                 </ul>
               </nav>

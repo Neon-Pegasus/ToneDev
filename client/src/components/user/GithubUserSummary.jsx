@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import PropTypes from 'prop-types';
 import ThreePieChart from './ThreeFieldPieChart';
 import RadarChart from './RadarChart';
@@ -72,20 +72,24 @@ class GithubUserSummary extends React.Component {
     const { threePieData, radarData } = this.state;
     return (
       <div>
-        <h2 className="gitviews">
-          GitHub Issue Analysis Summary for
-          {' '}
-          {username}
-        </h2>
 
         <div className="gitviews">
-          <div>
-            <h4>Average emotion conveyed by each GitHub issue</h4>
-            <RadarChart data={radarData} labelTag="Issues" />
+          <div className="summarytitle">
+            <h2>
+              GitHub Issue Analysis Summary for
+              {' '}
+              {username}
+            </h2>
           </div>
-          <div>
-            <h4>Number of issues contributed to each sentiment</h4>
-            <ThreePieChart score={threePieData} />
+          <div className="graphs">
+            <div>
+              <h4>Average emotion conveyed by each GitHub issue</h4>
+              <RadarChart data={radarData} labelTag="Issues" />
+            </div>
+            <div>
+              <h4>Number of issues contributed to each sentiment</h4>
+              <ThreePieChart score={threePieData} />
+            </div>
           </div>
         </div>
       </div>

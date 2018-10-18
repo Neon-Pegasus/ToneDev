@@ -123,6 +123,7 @@ gateway.use('/api/gateway/github/orgdata', (req, res) => {
 
 // TODO: add more endpoints for user, update current github enpoint for orgs
 gateway.use('/api/gateway/github/user/:username', logInChecker, (req, res) => {
+  console.log('line 125', req.params.username);
   const userName = req.params.username;
   axios({
     method: 'GET',
@@ -131,6 +132,7 @@ gateway.use('/api/gateway/github/user/:username', logInChecker, (req, res) => {
     params: { userName },
   })
     .then((result) => {
+      console.log('line 134', result.data);
       const { data } = result;
       return axios.post('https://tonedev-user-ibm.herokuapp.com/api/githubAnalysis', {
         username: userName,
