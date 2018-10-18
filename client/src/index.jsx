@@ -54,9 +54,10 @@ class App extends React.Component {
         <div>
           {(isLoggedIn && username) ? (
             <div>
-              <h1 className="title-logo">ToneDev</h1>
+              {/* <h1 className="title-logo">ToneDev</h1> */}
               <nav>
                 <ul>
+                  <li><h1 className="title-logo">ToneDev</h1></li>
                   <li><Link to="/home">Home</Link></li>
                   <li><Link to="/" onClick={this.changeMenu} onKeyUp={this.changeMenu}>Logout</Link></li>
                 </ul>
