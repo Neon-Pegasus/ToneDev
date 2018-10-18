@@ -62,7 +62,7 @@ class User extends React.Component {
             {' '}
             <input type="text" name="SOUsername" onChange={this.handleChange} />
           </label>
-          <input type="button" value="Submit" onClick={this.submitSOname} />
+          <input type="button" className="so-submit" value="Submit" onClick={this.submitSOname} />
         </form>
         {viewCharts ? (
           <div>
