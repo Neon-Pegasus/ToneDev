@@ -9,7 +9,11 @@ import Login from './components/Login';
 import Organizations from './components/Organizations';
 import SummaryView from './components/SummaryView';
 import User from './components/user/User';
+<<<<<<< c06484d5cd16e979c4f5ab780ce38df68d50e329
 import TextAnalysis from './components/user_input/TextAnalysis';
+=======
+import GithubUserSummary from './components/user/GithubUserSummary';
+>>>>>>> add github user summary as a separate component
 
 
 class App extends React.Component {
@@ -66,8 +70,9 @@ class App extends React.Component {
             <Route exact path="/" render={() => <Login />} />
             <Route path="/orgs" component={Organizations} />
             <Route path="/summary" component={SummaryView} />
-            <Route path="/user" component={User} />
             <Route path="/input-analysis" component={TextAnalysis} />
+            <Route path="/stackOverflow" component={User} />
+            <Route path="/github/summary" component={GithubUserSummary} />
           </Switch>
         </div>
       </div>

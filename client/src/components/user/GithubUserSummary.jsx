@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import ThreePieChart from './ThreeFieldPieChart';
 import RadarChart from './RadarChart';
@@ -6,28 +7,43 @@ import RadarChart from './RadarChart';
 class GithubUserSummary extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      threePieData: {},
+      radarData: {},
+    };
   }
 
-  // NEED TO PASS DOWN THE REAL DATA ONCE WE ARE GETTING IT
+  componentDidMount() {
+    axios.get('/api/gateway/github/user/andrew')
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   render() {
-    const { score, data } = this.props;
+    // const { score, data } = this.props;
     return (
       <div className="gitviews">
         <div>
+          hello
+        </div>
+        {/* <div>
           <ThreePieChart score={score} />
         </div>
         <div>
           <RadarChart data={data} />
-        </div>
+        </div> */}
       </div>
     );
   }
 }
 
-GithubUserSummary.propTypes = {
-  score: PropTypes.shape.isRequired,
-  data: PropTypes.shape.isRequired,
-};
+// GithubUserSummary.propTypes = {
+//   score: PropTypes.shape.isRequired,
+//   data: PropTypes.shape.isRequired,
+// };
 
 export default GithubUserSummary;
