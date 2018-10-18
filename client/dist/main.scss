@@ -138,6 +138,7 @@ nav {
 .summary-item-info {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     background-color: #fff;
     border-radius: .5em;
     padding: 2em;
