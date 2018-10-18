@@ -6,7 +6,6 @@ class Input extends React.Component {
     super(props);
     this.state = {
       input: '',
-      output: {},
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -50,11 +49,6 @@ class Input extends React.Component {
           />
           <button type="submit">Analyize</button>
         </form>
-        {/* <p> */}
-          {/* Sentiment: {this.state.output.sentiment} */}
-          {/* {' '} */}
-          {/* Score: {this.state.output.score} */}
-        {/* </p> */}
       </div>
     );
   }
