@@ -65,7 +65,7 @@ class App extends React.Component {
             <Route exact path="/" render={() => <Login />} />
             <Route path="/orgs" component={Organizations} />
             <Route path="/summary" component={SummaryView} />
-            <Route path="/user" component={User} />
+            <Route path="/stackOverflow" component={User} />
           </Switch>
         </div>
       </div>
