@@ -18,7 +18,7 @@ const Output = (props) => {
         {sentiment}
       </p>
       <div>
-        {keywords.map((keyword) => {
+        {keywords.length !== 0 ? keywords.map((keyword) => {
           console.log(keyword);
           return (
             <div key={keyword}>
@@ -33,7 +33,7 @@ const Output = (props) => {
               </p>
             </div>
           );
-        })}
+        }) : null}
       </div>
     </div>
   );
