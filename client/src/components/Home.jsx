@@ -4,6 +4,7 @@ import {
   Link, Redirect,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// import TextAnalysis from './user_input/TextAnalysis';
 
 
 class Home extends React.Component {
@@ -49,7 +50,14 @@ class Home extends React.Component {
           {' '}
           {`${username}`}
         </h1>
+        {/* <TextAnalysis /> */}
         <div id="home-menu">
+          <div className="home-menu-item">
+            <Link to="/input-analysis">Live Comment Analysis</Link>
+            <p>
+              Enter the text you want to analyze to get some quick feedback before you hit send
+            </p>
+          </div>
           <div className="home-menu-item">
             <Link to="/orgs">View Top Organizations</Link>
             <p>

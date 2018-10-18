@@ -60,15 +60,16 @@ gateway.use('/api/user/so', logInChecker, (req, res) => {
 });
 
 //  IBM watson organization microservice
-gateway.use('/api/gateway/org/sentiment', (req, res) => {
+gateway.use('/api/gateway/input/sentiment', (req, res) => {
   axios({
     method: req.method,
-    url: 'https://tonedev-micro-sentiment.herokuapp.com',
+    url: 'http://localhost:4000/user/input',
     data: req.body,
     headers: { 'Content-type': 'application/json' },
   })
     .then((data) => {
       res.send(data.data);
+      // console.log(data.data);
     })
     .catch((err) => {
       res.send(err.message);
