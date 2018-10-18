@@ -52,7 +52,7 @@ class User extends React.Component {
 
   render() {
     const {
-      viewCharts, pieData, radarData, load,
+      viewCharts, pieData, radarData, load, SOUsername,
     } = this.state;
     return (
       <div className="main-user-display">
@@ -69,21 +69,21 @@ class User extends React.Component {
           </label>
           <input type="button" className="so-submit" value="Submit" onClick={this.submitSOname} />
         </form>
-        {/* {load ? (
-          <div>
-            <LoadingSpinner />
-          </div>
-        )
-          : null} */}
         {viewCharts ? (
           <div>
-            <h1>StackOverflow Sentiment Analysis</h1>
-            <div className="stackviews">
-              <div className="radar-so">
-                <RadarChart data={radarData} labelTag="Answers" />
-              </div>
-              <div className="pie-so">
-                <ThreePieChart score={pieData} />
+            <div className="chartviews">
+              <h1>
+              StackOverflow Sentiment Analysis For
+                {' '}
+                {SOUsername}
+              </h1>
+              <div className="graphs">
+                <div className="radar-so">
+                  <RadarChart data={radarData} labelTag="Answers" />
+                </div>
+                <div className="pie-so">
+                  <ThreePieChart score={pieData} />
+                </div>
               </div>
             </div>
           </div>

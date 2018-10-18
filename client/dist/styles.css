@@ -137,18 +137,7 @@ input {
   margin-left: 10px;
 }
 
-.stackviews {
-  display: flex;
-  /* width: 85vw; */
-  background-color: #fff;
-  border-radius: .5em;
-  padding: 2em;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  justify-content: center;
-  margin: 20px 0 10px 0;
-}
-
-.gitviews {
+.chartviews {
   display: flex;
   justify-content: center;
   background-color: #fff;

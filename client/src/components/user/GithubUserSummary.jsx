@@ -71,9 +71,8 @@ class GithubUserSummary extends React.Component {
     const { username } = this.props;
     const { threePieData, radarData } = this.state;
     return (
-      <div>
-
-        <div className="gitviews">
+      <div className="main-user-display">
+        <div className="chartviews">
           <div className="summarytitle">
             <h2>
               GitHub Issue Analysis Summary for
