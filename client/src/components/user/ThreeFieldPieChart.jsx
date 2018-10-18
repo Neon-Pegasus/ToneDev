@@ -19,17 +19,16 @@ const ThreePieChart = (props) => {
     ],
   };
   const options = {
-    title: {
-      display: true,
-      text: '',
-      fontFamily: 'Roboto',
-      fontSize: 20,
+    legend: {
+      labels: {
+        fontSize: 15,
+      },
     },
   };
 
   return (
     <div>
-      <Pie data={graphData} options={options} width="400" height="300" />
+      <Pie data={graphData} options={options} width="500" height="330" />
     </div>
   );
 };

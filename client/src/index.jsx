@@ -72,7 +72,7 @@ class App extends React.Component {
             <Route path="/summary" component={SummaryView} />
             <Route path="/input-analysis" component={TextAnalysis} />
             <Route path="/stackOverflow" component={User} />
-            <Route path="/github/summary" component={GithubUserSummary} />
+            <Route path="/github/summary" render={() => <GithubUserSummary username={username} />} />
           </Switch>
         </div>
       </div>
