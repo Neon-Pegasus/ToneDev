@@ -29,9 +29,10 @@ const RadarChart = (props) => {
     // },
     scale: {
       pointLabels: {
-        fontSize: 18,
-        fontFamily: 'Roboto',
-        fontColor: '#0116271',
+        fontSize: 17,
+        fontFamily: 'sans-serif',
+        fontColor: '#666',
+        // fontColor: '#0116271',
       },
     },
     legend: {

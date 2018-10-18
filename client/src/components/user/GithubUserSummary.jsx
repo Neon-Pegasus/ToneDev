@@ -1,24 +1,96 @@
 import React from 'react';
+// import axios from 'axios';
 import PropTypes from 'prop-types';
 import ThreePieChart from './ThreeFieldPieChart';
 import RadarChart from './RadarChart';
 
+const exampleData = [
+  {
+    sentiment: {
+      labels: [
+        'Neutral',
+        'Positive',
+        'Negative',
+      ],
+      data: [
+        9,
+        12,
+        8,
+      ],
+    },
+  },
+  {
+    emotion: {
+      labels: [
+        'Sadness',
+        'Joy',
+        'Fear',
+        'Disgust',
+        'Anger',
+      ],
+      data: [
+        25.77,
+        18.26,
+        6.85,
+        5.18,
+        9.80,
+      ],
+    },
+  },
+];
+
 class GithubUserSummary extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      threePieData: {},
+      radarData: {},
+    };
   }
 
-  // NEED TO PASS DOWN THE REAL DATA ONCE WE ARE GETTING IT
+  componentDidMount() {
+    this.setState({
+      radarData: Object.assign({}, exampleData[1].emotion),
+      threePieData: Object.assign({}, exampleData[0].sentiment),
+    });
+    // axios.get('/api/gateway/github/user/andrew')
+    //   .then((result) => {
+    //     console.log(result);
+    //     const response = res.data;
+    //     this.setState({
+    //       radarData: Object.assign({}, response[1].emotion),
+    //       threePieData: Object.assign({}, response[0].sentiment),
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  }
+
   render() {
-    const { score, data } = this.props;
+    const { username } = this.props;
+    const { threePieData, radarData } = this.state;
     return (
-      <div className="gitviews">
-        <div>
-          <ThreePieChart score={score} />
-        </div>
-        <div>
-          <RadarChart data={data} />
+      <div>
+
+        <div className="gitviews">
+          <div className="summarytitle">
+            <h2>
+              GitHub Issue Analysis Summary for
+              {' '}
+              {username}
+            </h2>
+          </div>
+          <div className="graphs">
+            <div>
+              <h4>Average emotion conveyed by each GitHub issue</h4>
+              <RadarChart data={radarData} labelTag="Issues" />
+            </div>
+            <div>
+              <h4>Number of issues contributed to each sentiment</h4>
+              <ThreePieChart score={threePieData} />
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -26,8 +98,7 @@ class GithubUserSummary extends React.Component {
 }
 
 GithubUserSummary.propTypes = {
-  score: PropTypes.shape.isRequired,
-  data: PropTypes.shape.isRequired,
+  username: PropTypes.string.isRequired,
 };
 
 export default GithubUserSummary;

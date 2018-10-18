@@ -71,6 +71,12 @@ class Home extends React.Component {
               Get an analysis of your answers on Stackoverflow
             </p>
           </div>
+          <div className="home-menu-item">
+            <Link to="/github/summary">View your GitHub Analysis</Link>
+            <p>
+              See how you communicate on GitHub issues
+            </p>
+          </div>
         </div>
       </div>
     );
