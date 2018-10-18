@@ -122,15 +122,19 @@ gateway.use('/api/gateway/github/orgdata', (req, res) => {
 
 // TODO: add more endpoints for user, update current github enpoint for orgs
 gateway.use('/api/gateway/github/user/:username', logInChecker, (req, res) => {
+  const userName = req.params.username;
   axios({
     method: 'GET',
-    url: 'https://tondev-micro-github.herokuapp.com/api/gateway/github/user/repo/data',
+    url: 'https://tondev-micro-github.herokuapp.com/api/gateway/github/repo/data',
     headers: { 'Content-type': 'application/json' },
-    params: { username: '' },
+    params: { userName },
   })
     .then((result) => {
-    // axios request to Joanne's MS
-      console.log(result);
+      const { data } = result;
+      return axios.post('https://tonedev-user-ibm.herokuapp.com/api/githubAnalysis', {
+        username: userName,
+        githubComments: data,
+      });
     })
     .then((result) => {
       res.send(result.data);
