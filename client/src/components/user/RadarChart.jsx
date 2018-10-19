@@ -21,18 +21,20 @@ const RadarChart = (props) => {
   };
 
   const options = {
-    // title: {
-    //   display: true,
-    //   text: title,
-    //   fontFamily: 'Roboto',
-    //   fontSize: 25,
-    // },
     scale: {
       pointLabels: {
         fontSize: 17,
         fontFamily: 'sans-serif',
         fontColor: '#666',
-        // fontColor: '#0116271',
+      },
+      gridLines: {
+        color: '#878280',
+      },
+      angleLines: {
+        color: '#878280',
+      },
+      ticks: {
+        fontColor: '#358723',
       },
     },
     legend: {
