@@ -34,6 +34,7 @@ class Input extends React.Component {
       text: input,
     })
       .then((result) => {
+        console.log('this is loading', loading);
         console.log('INPUT RESULTS: ', result.data);
         const { score, label } = result.data.sentiment.document;
         const { keywords } = result.data;
