@@ -63,7 +63,7 @@ gateway.use('/api/user/so', logInChecker, (req, res) => {
 gateway.use('/api/gateway/input/sentiment', (req, res) => {
   axios({
     method: req.method,
-    url: 'http://localhost:4000/user/input',
+    url: 'http://tonedev-micro-sentiment.herokuapp.com/user/input',
     data: req.body,
     headers: { 'Content-type': 'application/json' },
   })
