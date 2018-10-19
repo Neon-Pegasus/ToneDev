@@ -141,6 +141,7 @@ nav a:hover {
   background-color: #2ec4b6;
   border-color: #2ec4b6;
   padding: 2px 8px 2px 8px;
+  margin-top: 10px;
 }
 input {
   font-size: 1em;
