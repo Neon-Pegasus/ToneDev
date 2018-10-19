@@ -56,27 +56,31 @@ class Input extends React.Component {
   render() {
     const { input } = this.state;
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <textarea
-            rows="10"
-            cols="30"
-            type="text"
-            name="input"
-            value={input}
-            onChange={this.onChange}
-          >
-          Your comment here
-          </textarea>
-          {/* <input
-            type="text"
-            name="input"
-            value={input}
-            onChange={this.onChange}
-          /> */}
-          <button type="submit">Analyize</button>
-        </form>
-        {this.showResults()}
+      <div className="live-form">
+        <div>
+          <form onSubmit={this.onSubmit}>
+            <textarea
+              rows="10"
+              cols="30"
+              type="text"
+              name="input"
+              value={input}
+              onChange={this.onChange}
+            >
+              Your comment here
+            </textarea>
+            {/* <input
+                type="text"
+                name="input"
+                value={input}
+                onChange={this.onChange}
+              /> */}
+          </form>
+        </div>
+        <div>
+          <button type="submit" className="la-submit">Analyize</button>
+          {this.showResults()}
+        </div>
       </div>
     );
   }
