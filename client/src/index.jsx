@@ -69,8 +69,20 @@ class App extends React.Component {
                       Analysis
                     </Link>
                   </li>
-                  <li><Link to="/github/summary">Your GitHub Summary</Link></li>
-                  <li><Link to="input-analysis">Live Analysis</Link></li>
+                  <li>
+                    <Link to="/githubSummary">
+                      Your GitHub
+                      <br />
+                      Summary
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="input-analysis">
+                      Live
+                      <br />
+                      Analysis
+                    </Link>
+                  </li>
                   <li><Link to="/" onClick={this.changeMenu} onKeyUp={this.changeMenu}>Logout</Link></li>
                 </ul>
               </nav>
@@ -85,7 +97,7 @@ class App extends React.Component {
             <Route path="/summary" component={SummaryView} />
             <Route path="/input-analysis" component={TextAnalysis} />
             <Route path="/stackOverflow" component={User} />
-            <Route path="/github/summary" render={() => <GithubUserSummary username={username} />} />
+            <Route path="/githubSummary" render={() => <GithubUserSummary username={username} />} />
           </Switch>
         </div>
       </div>

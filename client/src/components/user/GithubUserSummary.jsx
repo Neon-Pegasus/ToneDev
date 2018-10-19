@@ -79,14 +79,24 @@ class GithubUserSummary extends React.Component {
               {' '}
               {username}
             </h2>
+            <br />
+            <br />
           </div>
           <div className="graphs">
             <div>
-              <h4>Average emotion conveyed by each GitHub issue</h4>
+              <h4>
+                Average emotional perception
+                <br />
+                of GitHub issue responses
+              </h4>
               <RadarChart data={radarData} labelTag="Issues" />
             </div>
             <div>
-              <h4>Number of issues contributed to each sentiment</h4>
+              <h4>
+                Number of issues contributed
+                <br />
+                to each sentiment
+              </h4>
               <ThreePieChart score={threePieData} />
             </div>
           </div>
