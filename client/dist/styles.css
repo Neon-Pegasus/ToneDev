@@ -130,7 +130,18 @@ nav a:hover {
   border-color: #2ec4b6;
   margin: 0 0 0 10px;
   padding: 2px 8px 2px 8px;
-  
+}
+
+.la-submit {
+  width: 15vw;
+  height: 5vh;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #2ec4b6;
+  border-color: #2ec4b6;
+  padding: 2px 8px 2px 8px;
+  margin-top: 10px;
 }
 input {
   font-size: 1em;
@@ -157,6 +168,17 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.live-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column
+}
+
+textarea {
+  width: 25vw;
+  height: 40vh;
 }
 
 /*# sourceMappingURL=styles.css.map */

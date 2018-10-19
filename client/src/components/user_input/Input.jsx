@@ -10,6 +10,7 @@ class Input extends React.Component {
       score: null,
       sentiment: '',
       keywords: [],
+      loading: false,
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -25,8 +26,10 @@ class Input extends React.Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const { input } = this.state;
-
+    const { input, loading } = this.state;
+    this.setState({
+      loading: true,
+    });
     axios.post('/api/gateway/input/sentiment', {
       text: input,
     })
@@ -38,6 +41,7 @@ class Input extends React.Component {
           score,
           sentiment: label,
           keywords,
+          loading: false,
         });
       })
       .catch((error) => {
@@ -56,27 +60,31 @@ class Input extends React.Component {
   render() {
     const { input } = this.state;
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <textarea
-            rows="10"
-            cols="30"
-            type="text"
-            name="input"
-            value={input}
-            onChange={this.onChange}
-          >
-          Your comment here
-          </textarea>
-          {/* <input
-            type="text"
-            name="input"
-            value={input}
-            onChange={this.onChange}
-          /> */}
-          <button type="submit">Analyize</button>
-        </form>
-        {this.showResults()}
+      <div className="live-form">
+        <div>
+          <form onSubmit={this.onSubmit}>
+            <textarea
+              rows="10"
+              cols="30"
+              type="text"
+              name="input"
+              value={input}
+              onChange={this.onChange}
+            >
+              Your comment here
+            </textarea>
+            {/* <input
+                type="text"
+                name="input"
+                value={input}
+                onChange={this.onChange}
+              /> */}
+          </form>
+        </div>
+        <div>
+          <button type="submit" className="la-submit">Analyize</button>
+          {this.showResults()}
+        </div>
       </div>
     );
   }
