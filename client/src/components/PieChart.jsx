@@ -13,7 +13,7 @@ const PieChart = (props) => {
         data: [score, remainder],
         backgroundColor: [
           '#2ec4b6',
-          '#ff9f1c',
+          '#3b0066',
         ],
       },
     ],

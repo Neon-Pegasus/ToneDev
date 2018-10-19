@@ -46,7 +46,7 @@ class Home extends React.Component {
     return (
       <div>
         <h1 id="welcome-title">
-          Welcome
+          WELCOME,
           {' '}
           {`${username}`}
         </h1>

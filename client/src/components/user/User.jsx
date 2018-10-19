@@ -65,7 +65,7 @@ class User extends React.Component {
           <label htmlFor="SOuserName">
           StackOverflow Username:
             {' '}
-            <input type="text" name="SOUsername" onChange={this.handleChange} />
+            <input type="text" name="SOUsername" className="so-input" onChange={this.handleChange} />
           </label>
           <input type="button" className="so-submit" value="Submit" onClick={this.submitSOname} />
         </form>

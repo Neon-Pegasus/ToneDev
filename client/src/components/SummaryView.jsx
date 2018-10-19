@@ -53,7 +53,7 @@ class Summary extends React.Component {
               <p>
               The
                 {' '}
-                <a href="https://freeCodeCamp.org">freeCodeCamp</a>
+                <a className="free-code-camp" href="https://freeCodeCamp.org">freeCodeCamp</a>
                 {' '}
               open source codebase and curriculum.
               Learn to code for free together with millions of people.
