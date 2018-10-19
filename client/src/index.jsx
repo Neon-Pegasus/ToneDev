@@ -50,41 +50,17 @@ class App extends React.Component {
       <div>
         <div>
           {(isLoggedIn && username) ? (
-            <div>
+            <div className="navbar-container">
               <nav>
-                <ul>
-                  <li><h1 className="title-logo">ToneDev</h1></li>
-                  <li><Link to="/home">Home</Link></li>
-                  <li>
-                    <Link to="/orgs">
-                      Top
-                      <br />
-                      Organizations
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/stackOverflow">
-                      StackOverflow
-                      <br />
-                      Analysis
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/githubSummary">
-                      Your GitHub
-                      <br />
-                      Summary
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="input-analysis">
-                      Live
-                      <br />
-                      Analysis
-                    </Link>
-                  </li>
-                  <li><Link to="/" onClick={this.changeMenu} onKeyUp={this.changeMenu}>Logout</Link></li>
-                </ul>
+                <div>
+                  <span className="title-logo">ToneDev</span>
+                  <span><Link to="/home">Home</Link></span>
+                  <span><Link to="/orgs">Organizations</Link></span>
+                  <span><Link to="/stackOverflow">StackOverflow Analysis</Link></span>
+                  <span><Link to="/githubSummary">GitHub Analysis</Link></span>
+                  <span><Link to="input-analysis">Live Analysis</Link></span>
+                  <span><Link to="/" onClick={this.changeMenu} onKeyUp={this.changeMenu}>Logout</Link></span>
+                </div>
               </nav>
             </div>
           ) : (null)}
