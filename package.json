@@ -39,6 +39,7 @@
   "homepage": "https://github.com/Neon-Pegasus/ToneDev#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "better-react-spinkit": "^2.0.4",
     "body-parser": "^1.18.3",
     "chart.js": "^2.7.2",
     "cookie-parser": "^1.4.3",

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import LoadingSpinner from '../LoadingSpinner';
 import RadarChart from './RadarChart';
 import ThreePieChart from './ThreeFieldPieChart';
 
@@ -11,13 +12,10 @@ class User extends React.Component {
       pieData: {},
       radarData: {},
       viewCharts: false,
+      load: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitSOname = this.submitSOname.bind(this);
-  }
-
-  componentDidMount() {
-    // function with axios call for endpoint
   }
 
   handleChange(e) {
@@ -28,6 +26,10 @@ class User extends React.Component {
 
   submitSOname() {
     const { SOUsername } = this.state;
+    this.setState({
+      viewCharts: false,
+      load: true,
+    });
     axios.get('/api/user/so', {
       params: {
         username: SOUsername,
@@ -39,6 +41,7 @@ class User extends React.Component {
         this.setState({
           radarData: Object.assign({}, responseData[1].emotion),
           pieData: Object.assign({}, responseData[0].sentiment),
+          load: false,
           viewCharts: true,
         });
       })
@@ -48,7 +51,9 @@ class User extends React.Component {
   }
 
   render() {
-    const { viewCharts, pieData, radarData } = this.state;
+    const {
+      viewCharts, pieData, radarData, load, SOUsername,
+    } = this.state;
     return (
       <div className="main-user-display">
         {viewCharts ? (null) : (
@@ -66,18 +71,29 @@ class User extends React.Component {
         </form>
         {viewCharts ? (
           <div>
-            <h1>StackOverflow Sentiment Analysis</h1>
-            <div className="stackviews">
-              <div className="radar-so">
-                <RadarChart data={radarData} labelTag="Answers" />
-              </div>
-              <div className="pie-so">
-                <ThreePieChart score={pieData} />
+            <div className="chartviews">
+              <h1>
+              StackOverflow Sentiment Analysis For
+                {' '}
+                {SOUsername}
+              </h1>
+              <div className="graphs">
+                <div className="radar-so">
+                  <RadarChart data={radarData} labelTag="Answers" />
+                </div>
+                <div className="pie-so">
+                  <ThreePieChart score={pieData} />
+                </div>
               </div>
             </div>
           </div>
         )
-          : null}
+          : load ? (
+            <div>
+              <LoadingSpinner />
+            </div>
+          )
+            : null}
       </div>
     );
   }

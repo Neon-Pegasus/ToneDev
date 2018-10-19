@@ -13,7 +13,8 @@ module.exports = {
       }
   },
   rules: {
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "no-nested-ternary": "off"
   },
   plugins: [ "jest" ],
 };
