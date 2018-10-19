@@ -72,16 +72,28 @@ class User extends React.Component {
         {viewCharts ? (
           <div>
             <div className="chartviews">
-              <h1>
+              <h2>
               StackOverflow Sentiment Analysis For
                 {' '}
                 {SOUsername}
-              </h1>
+              </h2>
+              <br />
+              <br />
               <div className="graphs">
                 <div className="radar-so">
+                  <h4>
+                    Average emotional perception
+                    <br />
+                    of StackOverflow answers
+                  </h4>
                   <RadarChart data={radarData} labelTag="Answers" />
                 </div>
                 <div className="pie-so">
+                  <h4>
+                    Number of answers contributed
+                    <br />
+                    to each sentiment
+                  </h4>
                   <ThreePieChart score={pieData} />
                 </div>
               </div>

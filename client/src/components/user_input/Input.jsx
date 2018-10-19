@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Output from './Output';
+import LoadingSpinner from '../LoadingSpinner';
 
 class Input extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class Input extends React.Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const { input, loading } = this.state;
+    const { input } = this.state;
     this.setState({
       loading: true,
     });
@@ -34,7 +35,8 @@ class Input extends React.Component {
       text: input,
     })
       .then((result) => {
-        console.log('INPUT RESULTS: ', result.data);
+        // console.log('INPUT RESULTS: ', result.data);
+        console.log('line 39');
         const { score, label } = result.data.sentiment.document;
         const { keywords } = result.data;
         this.setState({
@@ -51,14 +53,17 @@ class Input extends React.Component {
 
   showResults() {
     const { score, sentiment, keywords } = this.state;
-    if (score) {
+    if (score !== null) {
       return <Output score={score} sentiment={sentiment} keywords={keywords} />;
     }
     return null;
   }
 
   render() {
-    const { input } = this.state;
+    console.log('what is state', this.state);
+    const {
+      input, loading,
+    } = this.state;
     return (
       <div className="live-form">
         <div>
@@ -82,8 +87,13 @@ class Input extends React.Component {
           </form>
         </div>
         <div>
-          <button type="submit" className="la-submit">Analyize</button>
-          {this.showResults()}
+          <button type="submit" className="la-submit" onClick={this.onSubmit}>Analyize</button>
+          {/* {this.showResults()} */}
+          {loading ? (
+            <div className="loading-spinner">
+              <LoadingSpinner />
+            </div>
+          ) : (this.showResults())}
         </div>
       </div>
     );

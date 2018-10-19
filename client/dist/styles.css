@@ -181,4 +181,9 @@ textarea {
   height: 40vh;
 }
 
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=styles.css.map */

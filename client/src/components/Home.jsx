@@ -72,7 +72,7 @@ class Home extends React.Component {
             </p>
           </div>
           <div className="home-menu-item">
-            <Link to="/github/summary">View your GitHub Analysis</Link>
+            <Link to="/githubSummary">View your GitHub Analysis</Link>
             <p>
               See how you communicate on GitHub issues
             </p>
