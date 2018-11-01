@@ -66,6 +66,7 @@
     "sequelize": "^4.39.0",
     "sequelize-cli": "^4.1.1",
     "supertest": "^3.3.0",
+    "merge": ">=1.2.1",
     "watson-developer-cloud": "^3.11.1"
   },
   "devDependencies": {
